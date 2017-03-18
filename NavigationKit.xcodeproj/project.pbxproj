@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF3701FD1E7D41F100D38715 /* CustomizedNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */; };
+		CF3702011E7D465B00D38715 /* NavigationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702001E7D465B00D38715 /* NavigationKit.swift */; };
 		CFE5913A1E7D3EE6004C536B /* NavigationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE591301E7D3EE6004C536B /* NavigationKit.framework */; };
 		CFE5913F1E7D3EE6004C536B /* NavigationKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE5913E1E7D3EE6004C536B /* NavigationKitTests.swift */; };
 		CFE591411E7D3EE6004C536B /* NavigationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CFE591331E7D3EE6004C536B /* NavigationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +25,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedNavigation.swift; sourceTree = "<group>"; };
+		CF3702001E7D465B00D38715 /* NavigationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationKit.swift; sourceTree = "<group>"; };
 		CFE591301E7D3EE6004C536B /* NavigationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavigationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE591331E7D3EE6004C536B /* NavigationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationKit.h; sourceTree = "<group>"; };
 		CFE591341E7D3EE6004C536B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +54,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CFBE26A81E7D404800464B61 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CFE591341E7D3EE6004C536B /* Info.plist */,
+				CFE591331E7D3EE6004C536B /* NavigationKit.h */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		CFBE26A91E7D405500464B61 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */,
+				CF3702001E7D465B00D38715 /* NavigationKit.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
 		CFE591261E7D3EE6004C536B = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +93,8 @@
 		CFE591321E7D3EE6004C536B /* NavigationKit */ = {
 			isa = PBXGroup;
 			children = (
-				CFE591331E7D3EE6004C536B /* NavigationKit.h */,
-				CFE591341E7D3EE6004C536B /* Info.plist */,
+				CFBE26A91E7D405500464B61 /* Sources */,
+				CFBE26A81E7D404800464B61 /* Support */,
 			);
 			path = NavigationKit;
 			sourceTree = "<group>";
@@ -149,6 +171,7 @@
 					CFE5912F1E7D3EE6004C536B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9PCAZJDB4X;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					CFE591381E7D3EE6004C536B = {
@@ -198,6 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3702011E7D465B00D38715 /* NavigationKit.swift in Sources */,
+				CF3701FD1E7D41F100D38715 /* CustomizedNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +347,7 @@
 		CFE591451E7D3EE6004C536B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9PCAZJDB4X;
@@ -334,6 +360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wilbertliu.NavigationKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +368,7 @@
 		CFE591461E7D3EE6004C536B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9PCAZJDB4X;
@@ -360,6 +388,7 @@
 		CFE591481E7D3EE6004C536B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9PCAZJDB4X;
 				INFOPLIST_FILE = NavigationKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +401,7 @@
 		CFE591491E7D3EE6004C536B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9PCAZJDB4X;
 				INFOPLIST_FILE = NavigationKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +430,7 @@
 				CFE591461E7D3EE6004C536B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CFE591471E7D3EE6004C536B /* Build configuration list for PBXNativeTarget "NavigationKitTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +439,7 @@
 				CFE591491E7D3EE6004C536B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
