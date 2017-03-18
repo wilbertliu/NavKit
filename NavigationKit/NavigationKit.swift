@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// A class that holds the reference of configured
-/// custom navigation settings via CustomizedNavigation protocol.
+/// A class that will do configuration stuffs on navigation bar
+/// via CustomizedNavigation protocol.
 open class NavigationKit {
 
     // MARK: - Properties

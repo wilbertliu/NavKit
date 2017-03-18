@@ -10,27 +10,50 @@ import XCTest
 @testable import NavigationKit
 
 class NavigationKitTests: XCTestCase {
-    
+
+    // MARK: - Properties
+
+    var navigationController: UINavigationController?
+
+    // MARK: - Life Cycles
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        navigationController = UINavigationController()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    // MARK: - Tests
+
+    func testBarBackgroundColor() {
+        let navigation1: Navigation1 = Navigation1()
+        let navigationKit: NavigationKit = NavigationKit(customNavigation: navigation1, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        XCTAssert(navigationController?.navigationBar.barTintColor == UIColor.black)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+
+    func testBarTranslucency() {
+        let navigation2: Navigation2 = Navigation2()
+        let navigationKit: NavigationKit = NavigationKit(customNavigation: navigation2, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        XCTAssert(navigationController?.navigationBar.isTranslucent == false)
     }
-    
+
+    func testBarShadow() {
+        let navigation3: Navigation3 = Navigation3()
+        let navigationKit: NavigationKit = NavigationKit(customNavigation: navigation3, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        XCTAssert(navigationController?.navigationBar.shadowImage != nil)
+    }
+
 }

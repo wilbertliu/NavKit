@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CF3701FD1E7D41F100D38715 /* CustomizedNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */; };
 		CF3702011E7D465B00D38715 /* NavigationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702001E7D465B00D38715 /* NavigationKit.swift */; };
+		CF3702031E7D98AB00D38715 /* Navigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702021E7D98AB00D38715 /* Navigation1.swift */; };
+		CF3702071E7D9BA100D38715 /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702061E7D9BA100D38715 /* Navigation2.swift */; };
+		CF3702091E7D9C8500D38715 /* Navigation3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702081E7D9C8500D38715 /* Navigation3.swift */; };
 		CFE5913A1E7D3EE6004C536B /* NavigationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE591301E7D3EE6004C536B /* NavigationKit.framework */; };
 		CFE5913F1E7D3EE6004C536B /* NavigationKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE5913E1E7D3EE6004C536B /* NavigationKitTests.swift */; };
 		CFE591411E7D3EE6004C536B /* NavigationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CFE591331E7D3EE6004C536B /* NavigationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedNavigation.swift; sourceTree = "<group>"; };
 		CF3702001E7D465B00D38715 /* NavigationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationKit.swift; sourceTree = "<group>"; };
+		CF3702021E7D98AB00D38715 /* Navigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation1.swift; sourceTree = "<group>"; };
+		CF3702061E7D9BA100D38715 /* Navigation2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation2.swift; sourceTree = "<group>"; };
+		CF3702081E7D9C8500D38715 /* Navigation3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation3.swift; sourceTree = "<group>"; };
 		CFE591301E7D3EE6004C536B /* NavigationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavigationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE591331E7D3EE6004C536B /* NavigationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationKit.h; sourceTree = "<group>"; };
 		CFE591341E7D3EE6004C536B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +60,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF3702041E7D9B3400D38715 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CFE5913E1E7D3EE6004C536B /* NavigationKitTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		CF3702051E7D9B4300D38715 /* Fakers */ = {
+			isa = PBXGroup;
+			children = (
+				CF3702021E7D98AB00D38715 /* Navigation1.swift */,
+				CF3702061E7D9BA100D38715 /* Navigation2.swift */,
+				CF3702081E7D9C8500D38715 /* Navigation3.swift */,
+			);
+			name = Fakers;
+			sourceTree = "<group>";
+		};
 		CFBE26A81E7D404800464B61 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +126,8 @@
 		CFE5913D1E7D3EE6004C536B /* NavigationKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				CFE5913E1E7D3EE6004C536B /* NavigationKitTests.swift */,
+				CF3702051E7D9B4300D38715 /* Fakers */,
+				CF3702041E7D9B3400D38715 /* Tests */,
 				CFE591401E7D3EE6004C536B /* Info.plist */,
 			);
 			path = NavigationKitTests;
@@ -231,6 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE5913F1E7D3EE6004C536B /* NavigationKitTests.swift in Sources */,
+				CF3702071E7D9BA100D38715 /* Navigation2.swift in Sources */,
+				CF3702031E7D98AB00D38715 /* Navigation1.swift in Sources */,
+				CF3702091E7D9C8500D38715 /* Navigation3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
