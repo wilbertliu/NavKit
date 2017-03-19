@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0F7AF21E7E1749001B41D4 /* Navigation5.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F7AF11E7E1749001B41D4 /* Navigation5.swift */; };
+		CF329F751E7E12E000FCA588 /* Navigation4.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF329F741E7E12E000FCA588 /* Navigation4.swift */; };
 		CF3701FD1E7D41F100D38715 /* CustomizedNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */; };
 		CF3702011E7D465B00D38715 /* NavigationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702001E7D465B00D38715 /* NavigationKit.swift */; };
 		CF3702031E7D98AB00D38715 /* Navigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702021E7D98AB00D38715 /* Navigation1.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF0F7AF11E7E1749001B41D4 /* Navigation5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation5.swift; sourceTree = "<group>"; };
+		CF329F741E7E12E000FCA588 /* Navigation4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation4.swift; sourceTree = "<group>"; };
 		CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedNavigation.swift; sourceTree = "<group>"; };
 		CF3702001E7D465B00D38715 /* NavigationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationKit.swift; sourceTree = "<group>"; };
 		CF3702021E7D98AB00D38715 /* Navigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation1.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				CF3702021E7D98AB00D38715 /* Navigation1.swift */,
 				CF3702061E7D9BA100D38715 /* Navigation2.swift */,
 				CF3702081E7D9C8500D38715 /* Navigation3.swift */,
+				CF329F741E7E12E000FCA588 /* Navigation4.swift */,
+				CF0F7AF11E7E1749001B41D4 /* Navigation5.swift */,
 			);
 			name = Fakers;
 			sourceTree = "<group>";
@@ -255,8 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF329F751E7E12E000FCA588 /* Navigation4.swift in Sources */,
 				CFE5913F1E7D3EE6004C536B /* NavigationKitTests.swift in Sources */,
 				CF3702071E7D9BA100D38715 /* Navigation2.swift in Sources */,
+				CF0F7AF21E7E1749001B41D4 /* Navigation5.swift in Sources */,
 				CF3702031E7D98AB00D38715 /* Navigation1.swift in Sources */,
 				CF3702091E7D9C8500D38715 /* Navigation3.swift in Sources */,
 			);

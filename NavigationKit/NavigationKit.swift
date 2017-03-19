@@ -33,6 +33,18 @@ open class NavigationKit {
         if let usingShadow = customNavigation.isBarUsingShadow, !usingShadow {
             navigationController?.navigationBar.shadowImage = UIImage()
         }
+
+        var titleTextAttributes = navigationController?.navigationBar.titleTextAttributes ?? [:]
+
+        if let titleColor = customNavigation.titleColor {
+            titleTextAttributes[NSForegroundColorAttributeName] = titleColor
+        }
+
+        if let titleFont = customNavigation.titleFont {
+            titleTextAttributes[NSFontAttributeName] = titleFont
+        }
+
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
     }
 
 }

@@ -56,4 +56,30 @@ class NavigationKitTests: XCTestCase {
         XCTAssert(navigationController?.navigationBar.shadowImage != nil)
     }
 
+    func testTitleColor() {
+        let navigation4: Navigation4 = Navigation4()
+        let navigationKit: NavigationKit = NavigationKit(customNavigation: navigation4, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        let titleTextAttributes = navigationController?.navigationBar.titleTextAttributes
+        let titleColor = titleTextAttributes?[NSForegroundColorAttributeName] as! UIColor
+
+        XCTAssertNotNil(titleTextAttributes)
+        XCTAssertEqual(titleColor, UIColor.white)
+    }
+
+    func testTitleFont() {
+        let navigation5: Navigation5 = Navigation5()
+        let navigationKit: NavigationKit = NavigationKit(customNavigation: navigation5, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        let titleTextAttributes = navigationController?.navigationBar.titleTextAttributes
+        let titleFont = titleTextAttributes?[NSFontAttributeName] as! UIFont
+
+        XCTAssertNotNil(titleTextAttributes)
+        XCTAssertEqual(titleFont, UIFont.systemFont(ofSize: 20))
+    }
+
 }

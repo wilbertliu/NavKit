@@ -29,7 +29,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CFE591381E7D3EE6004C536B"
+               BuildableName = "NavigationKitTests.xctest"
+               BlueprintName = "NavigationKitTests"
+               ReferencedContainer = "container:NavigationKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CFE5912F1E7D3EE6004C536B"
+            BuildableName = "NavigationKit.framework"
+            BlueprintName = "NavigationKit"
+            ReferencedContainer = "container:NavigationKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

@@ -13,5 +13,7 @@ import Foundation
     @objc optional var barBackgroundColor: UIColor { get }
     @objc optional var isBarTranslucent: Bool { get }
     @objc optional var isBarUsingShadow: Bool { get }
+    @objc optional var titleColor: UIColor { get }
+    @objc optional var titleFont: UIFont { get }
 
 }
