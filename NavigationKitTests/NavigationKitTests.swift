@@ -35,7 +35,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        XCTAssert(navigationController.navigationBar.barTintColor == UIColor.black)
+        XCTAssertEqual(navigationController.navigationBar.barTintColor, UIColor.black)
     }
 
     func testBarTranslucency() {
@@ -44,7 +44,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        XCTAssert(navigationController.navigationBar.isTranslucent == false)
+        XCTAssertFalse(navigationController.navigationBar.isTranslucent)
     }
 
     func testBarShadow() {
@@ -53,7 +53,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        XCTAssert(navigationController.navigationBar.shadowImage != nil)
+        XCTAssertNotNil(navigationController.navigationBar.shadowImage)
     }
 
     func testTitleColor() {
