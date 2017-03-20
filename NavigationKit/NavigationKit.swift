@@ -21,7 +21,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
 
     // MARK: - Initializers
 
-    init(customNavigation: CustomizedNavigation? = nil,
+    public init(customNavigation: CustomizedNavigation? = nil,
          customBackNavigation: CustomizedBackNavigation? = nil,
          customBackAction: CustomizedBackAction? = nil,
          navigationController: UINavigationController? = nil) {
@@ -33,7 +33,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
 
     // MARK: - Methods
 
-    func doSetup() {
+    open func doSetup() {
         doCustomNavigationSetup()
         doCustomBackNavigationSetup()
     }
