@@ -3,4 +3,4 @@ xcode_project: NavigationKit.xcodeproj
 xcode_scheme: NavigationKit
 
 script:
-  - xcodebuild clean build test -project NavigationKit.xcodeproj -scheme NavigationKit CODE_SIGNING_REQUIRED=NO
+  - xcodebuild clean build test -project NavigationKit.xcodeproj -scheme NavigationKit CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
