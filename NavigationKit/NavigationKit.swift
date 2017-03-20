@@ -14,63 +14,54 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
 
-    /// It stores a type that conforms to CustomizedNavigation protocol
+    /// It stores a type that conforms to NavigationConfig protocol
     /// that would be used to setup how the navigation bar looks like.
-    open var customNavigation: CustomizedNavigation?
-
-    /// It stores a type that conforms to CustomizedBackNavigation protocol
-    /// that would be used to setup how the back button on navigation bar looks like.
-    open var customBackNavigation: CustomizedBackNavigation?
-
-    /// It stores a type that conforms to CustomizedBackAction protocol
-    /// that would be used to setup custom action of back button.
-    open var customBackAction: CustomizedBackAction?
+    open var navigationConfig: NavigationConfig
 
     private let navigationController: UINavigationController
 
     // MARK: - Initializers
 
-    public init(navigationController: UINavigationController) {
+    public init(navigationConfig: NavigationConfig, navigationController: UINavigationController) {
+        self.navigationConfig = navigationConfig
         self.navigationController = navigationController
     }
 
     // MARK: - Methods
 
-    /// Setting up custom navigation with it's back button if any.
+    /// Setting up navigation config with it's back button if any.
     open func doSetup() {
-        doCustomNavigationSetup()
-        doCustomBackNavigationSetup()
+        doNavigationSetup()
+        doBackSetup()
     }
 
-    private func doCustomNavigationSetup() {
-        if let customNavigation = customNavigation {
-            navigationController.navigationBar.barTintColor = customNavigation.barBackgroundColor ?? UIColor.white
-            navigationController.navigationBar.isTranslucent = customNavigation.isBarTranslucent ?? true
+    private func doNavigationSetup() {
+        navigationController.navigationBar.barTintColor = navigationConfig.barBackgroundColor ?? UIColor.white
+        navigationController.navigationBar.isTranslucent = navigationConfig.isBarTranslucent ?? true
 
-            if let usingShadow = customNavigation.isBarUsingShadow, !usingShadow {
-                navigationController.navigationBar.shadowImage = UIImage()
-            }
-
-            var titleTextAttributes = navigationController.navigationBar.titleTextAttributes ?? [:]
-
-            if let titleColor = customNavigation.titleColor {
-                titleTextAttributes[NSForegroundColorAttributeName] = titleColor
-            }
-
-            if let titleFont = customNavigation.titleFont {
-                titleTextAttributes[NSFontAttributeName] = titleFont
-            }
-            
-            navigationController.navigationBar.titleTextAttributes = titleTextAttributes
+        if let usingShadow = navigationConfig.isBarUsingShadow, !usingShadow {
+            navigationController.navigationBar.shadowImage = UIImage()
         }
+
+        var titleTextAttributes = navigationController.navigationBar.titleTextAttributes ?? [:]
+
+        if let titleColor = navigationConfig.titleColor {
+            titleTextAttributes[NSForegroundColorAttributeName] = titleColor
+        }
+
+        if let titleFont = navigationConfig.titleFont {
+            titleTextAttributes[NSFontAttributeName] = titleFont
+        }
+
+        navigationController.navigationBar.titleTextAttributes = titleTextAttributes
     }
 
-    private func doCustomBackNavigationSetup() {
-        if let customBackNavigation = customBackNavigation {
+    private func doBackSetup() {
+        if let backConfig = navigationConfig.backConfig {
             let navigationItem = navigationController.navigationItem
             navigationItem.leftBarButtonItems = []
 
-            if let backImage = customBackNavigation.backImage {
+            if let backImage = backConfig.backImage {
                 let imageButton = UIButton()
                 imageButton.setImage(backImage, for: .normal)
                 imageButton.addTarget(self, action: #selector(backTappedAction(sender:)), for: .touchUpInside)
@@ -79,7 +70,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
                 navigationItem.leftBarButtonItems!.append(imageBarButtonItem)
             }
 
-            if let backText = customBackNavigation.backText {
+            if let backText = backConfig.backText {
                 let textButton = UIButton()
                 textButton.setTitle(backText, for: .normal)
                 textButton.addTarget(self, action: #selector(backTappedAction(sender:)), for: .touchUpInside)
@@ -88,7 +79,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
                 navigationItem.leftBarButtonItems!.append(textBarButtonItem)
             }
 
-            if customBackAction == nil {
+            if backConfig.backActionConfig == nil {
                 navigationController.interactivePopGestureRecognizer?.isEnabled = true
                 navigationController.interactivePopGestureRecognizer?.delegate = self
             }
@@ -104,8 +95,8 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
     // MARK: - Actions
 
     func backTappedAction(sender: Any) {
-        if let customBackAction = customBackAction {
-            customBackAction.customizedBackTapped(sender: sender)
+        if let backActionConfig = navigationConfig.backConfig?.backActionConfig {
+            backActionConfig.backTappedAction(sender: sender)
         } else {
             _ = navigationController.popViewController(animated: false)
         }

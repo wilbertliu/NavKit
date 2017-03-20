@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		CF0F7AF21E7E1749001B41D4 /* Navigation5.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F7AF11E7E1749001B41D4 /* Navigation5.swift */; };
 		CF329F751E7E12E000FCA588 /* Navigation4.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF329F741E7E12E000FCA588 /* Navigation4.swift */; };
-		CF3701FD1E7D41F100D38715 /* CustomizedNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */; };
+		CF3701FD1E7D41F100D38715 /* NavigationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3701FC1E7D41F100D38715 /* NavigationConfig.swift */; };
 		CF3702011E7D465B00D38715 /* NavigationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702001E7D465B00D38715 /* NavigationKit.swift */; };
 		CF3702031E7D98AB00D38715 /* Navigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702021E7D98AB00D38715 /* Navigation1.swift */; };
 		CF3702071E7D9BA100D38715 /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702061E7D9BA100D38715 /* Navigation2.swift */; };
 		CF3702091E7D9C8500D38715 /* Navigation3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3702081E7D9C8500D38715 /* Navigation3.swift */; };
-		CFA3E12C1E7ECE6600A9267A /* CustomizedBackNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E12B1E7ECE6600A9267A /* CustomizedBackNavigation.swift */; };
-		CFA3E12E1E7ED03600A9267A /* CustomizedBackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E12D1E7ED03600A9267A /* CustomizedBackAction.swift */; };
+		CFA3E12C1E7ECE6600A9267A /* BackConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E12B1E7ECE6600A9267A /* BackConfig.swift */; };
+		CFA3E12E1E7ED03600A9267A /* BackActionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E12D1E7ED03600A9267A /* BackActionConfig.swift */; };
 		CFA3E1301E7EDA7B00A9267A /* BackNavigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E12F1E7EDA7B00A9267A /* BackNavigation1.swift */; };
 		CFA3E1321E7EDADC00A9267A /* BackNavigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E1311E7EDADC00A9267A /* BackNavigation2.swift */; };
 		CFA3E1341E7EDAFB00A9267A /* BackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA3E1331E7EDAFB00A9267A /* BackAction.swift */; };
@@ -37,13 +37,13 @@
 /* Begin PBXFileReference section */
 		CF0F7AF11E7E1749001B41D4 /* Navigation5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation5.swift; sourceTree = "<group>"; };
 		CF329F741E7E12E000FCA588 /* Navigation4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation4.swift; sourceTree = "<group>"; };
-		CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedNavigation.swift; sourceTree = "<group>"; };
+		CF3701FC1E7D41F100D38715 /* NavigationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationConfig.swift; sourceTree = "<group>"; };
 		CF3702001E7D465B00D38715 /* NavigationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationKit.swift; sourceTree = "<group>"; };
 		CF3702021E7D98AB00D38715 /* Navigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation1.swift; sourceTree = "<group>"; };
 		CF3702061E7D9BA100D38715 /* Navigation2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation2.swift; sourceTree = "<group>"; };
 		CF3702081E7D9C8500D38715 /* Navigation3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation3.swift; sourceTree = "<group>"; };
-		CFA3E12B1E7ECE6600A9267A /* CustomizedBackNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedBackNavigation.swift; sourceTree = "<group>"; };
-		CFA3E12D1E7ED03600A9267A /* CustomizedBackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedBackAction.swift; sourceTree = "<group>"; };
+		CFA3E12B1E7ECE6600A9267A /* BackConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackConfig.swift; sourceTree = "<group>"; };
+		CFA3E12D1E7ED03600A9267A /* BackActionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackActionConfig.swift; sourceTree = "<group>"; };
 		CFA3E12F1E7EDA7B00A9267A /* BackNavigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackNavigation1.swift; sourceTree = "<group>"; };
 		CFA3E1311E7EDADC00A9267A /* BackNavigation2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackNavigation2.swift; sourceTree = "<group>"; };
 		CFA3E1331E7EDAFB00A9267A /* BackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackAction.swift; sourceTree = "<group>"; };
@@ -109,9 +109,9 @@
 		CFBE26A91E7D405500464B61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CFA3E12D1E7ED03600A9267A /* CustomizedBackAction.swift */,
-				CFA3E12B1E7ECE6600A9267A /* CustomizedBackNavigation.swift */,
-				CF3701FC1E7D41F100D38715 /* CustomizedNavigation.swift */,
+				CFA3E12D1E7ED03600A9267A /* BackActionConfig.swift */,
+				CFA3E12B1E7ECE6600A9267A /* BackConfig.swift */,
+				CF3701FC1E7D41F100D38715 /* NavigationConfig.swift */,
 				CF3702001E7D465B00D38715 /* NavigationKit.swift */,
 			);
 			name = Sources;
@@ -267,9 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF3702011E7D465B00D38715 /* NavigationKit.swift in Sources */,
-				CFA3E12C1E7ECE6600A9267A /* CustomizedBackNavigation.swift in Sources */,
-				CF3701FD1E7D41F100D38715 /* CustomizedNavigation.swift in Sources */,
-				CFA3E12E1E7ED03600A9267A /* CustomizedBackAction.swift in Sources */,
+				CFA3E12C1E7ECE6600A9267A /* BackConfig.swift in Sources */,
+				CF3701FD1E7D41F100D38715 /* NavigationConfig.swift in Sources */,
+				CFA3E12E1E7ED03600A9267A /* BackActionConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
