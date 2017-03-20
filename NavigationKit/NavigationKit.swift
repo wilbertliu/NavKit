@@ -99,11 +99,11 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
 
     // MARK: - Actions
 
-    @objc private func backTappedAction(sender: Any) {
+    func backTappedAction(sender: Any) {
         if let customBackAction = customBackAction {
             customBackAction.customizedBackTapped(sender: sender)
         } else if let navigationController = navigationController {
-            _ = navigationController.popViewController(animated: true)
+            _ = navigationController.popViewController(animated: false)
         }
     }
 

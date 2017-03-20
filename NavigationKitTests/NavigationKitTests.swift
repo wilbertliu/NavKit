@@ -13,7 +13,7 @@ class NavigationKitTests: XCTestCase {
 
     // MARK: - Properties
 
-    var navigationController: UINavigationController?
+    var navigationController: UINavigationController!
 
     // MARK: - Life Cycles
 
@@ -35,7 +35,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        XCTAssert(navigationController?.navigationBar.barTintColor == UIColor.black)
+        XCTAssert(navigationController.navigationBar.barTintColor == UIColor.black)
     }
 
     func testBarTranslucency() {
@@ -44,7 +44,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        XCTAssert(navigationController?.navigationBar.isTranslucent == false)
+        XCTAssert(navigationController.navigationBar.isTranslucent == false)
     }
 
     func testBarShadow() {
@@ -53,7 +53,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        XCTAssert(navigationController?.navigationBar.shadowImage != nil)
+        XCTAssert(navigationController.navigationBar.shadowImage != nil)
     }
 
     func testTitleColor() {
@@ -62,7 +62,7 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        let titleTextAttributes = navigationController?.navigationBar.titleTextAttributes
+        let titleTextAttributes = navigationController.navigationBar.titleTextAttributes
         let titleColor = titleTextAttributes?[NSForegroundColorAttributeName] as! UIColor
 
         XCTAssertNotNil(titleTextAttributes)
@@ -75,11 +75,98 @@ class NavigationKitTests: XCTestCase {
 
         navigationKit.doSetup()
 
-        let titleTextAttributes = navigationController?.navigationBar.titleTextAttributes
+        let titleTextAttributes = navigationController.navigationBar.titleTextAttributes
         let titleFont = titleTextAttributes?[NSFontAttributeName] as! UIFont
 
         XCTAssertNotNil(titleTextAttributes)
         XCTAssertEqual(titleFont, UIFont.systemFont(ofSize: 20))
+    }
+
+    func testBackImage() {
+        let backNavigation1: BackNavigation1 = BackNavigation1()
+        let navigationKit: NavigationKit = NavigationKit(customBackNavigation: backNavigation1, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        let navigationItem = navigationController.navigationItem
+        XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 1)
+
+        let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
+        XCTAssertNotNil(imageButton.currentImage)
+    }
+
+    func testBackImageWithText() {
+        let backNavigation2: BackNavigation2 = BackNavigation2()
+        let navigationKit: NavigationKit = NavigationKit(customBackNavigation: backNavigation2, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        let navigationItem = navigationController.navigationItem
+        XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 2)
+
+        let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
+        XCTAssertNotNil(imageButton.currentImage)
+
+        let textButton = navigationItem.leftBarButtonItems!.last!.customView as! UIButton
+        XCTAssertEqual(textButton.currentTitle, "Back")
+    }
+
+    func testBackAction() {
+        let backNavigation1: BackNavigation1 = BackNavigation1()
+        let navigationKit: NavigationKit = NavigationKit(customBackNavigation: backNavigation1, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        navigationController.viewControllers = [
+            UIViewController(),
+            UIViewController(),
+            UIViewController()
+        ]
+
+        XCTAssertEqual(navigationController.viewControllers.count, 3)
+
+        let navigationItem = navigationController.navigationItem
+        XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 1)
+
+        let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
+        XCTAssertNotNil(imageButton.currentImage)
+
+        navigationKit.backTappedAction(sender: imageButton)
+        XCTAssertNotEqual(navigationController.viewControllers.count, 1)
+    }
+
+    func testCustomBackAction() {
+        let backNavigation1: BackNavigation1 = BackNavigation1()
+        let backAction: BackAction = BackAction(navigationController: navigationController)
+        let navigationKit: NavigationKit = NavigationKit(customBackNavigation: backNavigation1, customBackAction: backAction, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        navigationController.viewControllers = [
+            UIViewController(),
+            UIViewController(),
+            UIViewController()
+        ]
+
+        XCTAssertEqual(navigationController.viewControllers.count, 3)
+
+        let navigationItem = navigationController.navigationItem
+        XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 1)
+
+        let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
+        XCTAssertNotNil(imageButton.currentImage)
+
+        navigationKit.backTappedAction(sender: imageButton)
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
+    }
+
+    func testInteractivePopupGestureDelegate() {
+        let backNavigation1: BackNavigation1 = BackNavigation1()
+        let navigationKit: NavigationKit = NavigationKit(customBackNavigation: backNavigation1, navigationController: navigationController)
+
+        navigationKit.doSetup()
+
+        XCTAssertTrue(navigationKit.gestureRecognizerShouldBegin(UIGestureRecognizer()))
     }
 
 }
