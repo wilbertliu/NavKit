@@ -12,6 +12,8 @@ import Foundation
 /// how the back button custom action would be doing.
 @objc public protocol BackActionConfig {
 
+    // MARK: - Required
+
     /// A function that would be called when the back button has tapped.
     /// It used to determine the custom behaviour that navigation must be doing
     /// rather than just go back to the previous screen.

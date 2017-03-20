@@ -12,13 +12,7 @@ import Foundation
 /// how the back button looks like and behave.
 @objc public protocol BackConfig {
 
-    /// Specify this property to determine the image that would be used as
-    /// the back button's image.
-    @objc optional var backImage: UIImage { get }
-
-    /// Specify this property to determine the text that would be used at
-    /// the right of the back button's image.
-    @objc optional var backText: String { get }
+    // MARK: - Required
 
     /// It stores a type that conforms to BackActionConfig protocol
     /// that would be used to setup custom action of back button.
@@ -32,6 +26,18 @@ import Foundation
     /// Set nil if you don't want to have a custom action configuration.
     @objc init(backActionConfig: BackActionConfig?)
 
+    /// Required initializer to enable instantiation without
+    /// having to put an instance of BackActionConfig type as an argument.
     @objc init()
+
+    // MARK: - Optional
+
+    /// Specify this property to determine the image that would be used as
+    /// the back button's image.
+    @objc optional var backImage: UIImage { get }
+
+    /// Specify this property to determine the text that would be used at
+    /// the right of the back button's image.
+    @objc optional var backText: String { get }
 
 }
