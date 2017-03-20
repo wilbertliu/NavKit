@@ -1,3 +1,6 @@
 language: objective-c
 xcode_project: NavigationKit.xcodeproj
 xcode_scheme: NavigationKit
+
+script:
+  - xcodebuild clean build test -project NavigationKit.xcodeproj -scheme NavigationKit CODE_SIGNING_REQUIRED=NO
