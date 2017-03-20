@@ -9,7 +9,15 @@
 import Foundation
 import NavigationKit
 
-class Navigation5: CustomizedNavigation {
+class Navigation5: NavigationConfig {
+
+    var backConfig: BackConfig?
+
+    required init() { }
+
+    required init(backConfig: BackConfig?) {
+        self.backConfig = backConfig
+    }
 
     var titleFont: UIFont {
         return UIFont.systemFont(ofSize: 20)

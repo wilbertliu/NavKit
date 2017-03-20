@@ -9,7 +9,15 @@
 import Foundation
 import NavigationKit
 
-class BackNavigation1: CustomizedBackNavigation {
+class BackNavigation1: BackConfig {
+
+    var backActionConfig: BackActionConfig?
+
+    required init() { }
+
+    required init(backActionConfig: BackActionConfig?) {
+        self.backActionConfig = backActionConfig
+    }
 
     var backImage: UIImage {
         return UIImage()

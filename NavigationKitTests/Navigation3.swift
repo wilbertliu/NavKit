@@ -9,7 +9,15 @@
 import Foundation
 import NavigationKit
 
-class Navigation3: CustomizedNavigation {
+class Navigation3: NavigationConfig {
+
+    var backConfig: BackConfig?
+
+    required init() { }
+
+    required init(backConfig: BackConfig?) {
+        self.backConfig = backConfig
+    }
 
     var isBarUsingShadow: Bool {
         return false

@@ -9,7 +9,7 @@
 import Foundation
 import NavigationKit
 
-class BackAction: CustomizedBackAction {
+class BackAction: BackActionConfig {
 
     let navigationController: UINavigationController?
 
@@ -17,7 +17,7 @@ class BackAction: CustomizedBackAction {
         self.navigationController = navigationController
     }
 
-    func customizedBackTapped(sender: Any) {
+    func backTappedAction(sender: Any) {
         _ = navigationController?.popToRootViewController(animated: false)
     }
 

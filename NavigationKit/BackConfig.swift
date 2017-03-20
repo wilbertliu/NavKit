@@ -32,4 +32,6 @@ import Foundation
     /// Set nil if you don't want to have a custom action configuration.
     @objc init(backActionConfig: BackActionConfig?)
 
+    @objc init()
+
 }

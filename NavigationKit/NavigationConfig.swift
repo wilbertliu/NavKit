@@ -44,4 +44,6 @@ import Foundation
     /// Set nil if you don't want to have a configuration for the back button.
     @objc init(backConfig: BackConfig?)
 
+    @objc init()
+
 }

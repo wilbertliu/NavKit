@@ -9,7 +9,15 @@
 import Foundation
 import NavigationKit
 
-class Navigation1: CustomizedNavigation {
+class Navigation1: NavigationConfig {
+
+    var backConfig: BackConfig?
+
+    required init() { }
+
+    required init(backConfig: BackConfig?) {
+        self.backConfig = backConfig
+    }
 
     var barBackgroundColor: UIColor {
         return .black
