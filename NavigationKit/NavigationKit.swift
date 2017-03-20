@@ -14,32 +14,36 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
 
-    private let customNavigation: CustomizedNavigation?
-    private let customBackNavigation: CustomizedBackNavigation?
-    private let customBackAction: CustomizedBackAction?
-    private let navigationController: UINavigationController?
+    /// It stores a type that conforms to CustomizedNavigation protocol
+    /// that would be used to setup how the navigation bar looks like.
+    open var customNavigation: CustomizedNavigation?
+
+    /// It stores a type that conforms to CustomizedBackNavigation protocol
+    /// that would be used to setup how the back button on navigation bar looks like.
+    open var customBackNavigation: CustomizedBackNavigation?
+
+    /// It stores a type that conforms to CustomizedBackAction protocol
+    /// that would be used to setup custom action of back button.
+    open var customBackAction: CustomizedBackAction?
+
+    private let navigationController: UINavigationController
 
     // MARK: - Initializers
 
-    public init(customNavigation: CustomizedNavigation? = nil,
-         customBackNavigation: CustomizedBackNavigation? = nil,
-         customBackAction: CustomizedBackAction? = nil,
-         navigationController: UINavigationController? = nil) {
-        self.customNavigation = customNavigation
-        self.customBackNavigation = customBackNavigation
-        self.customBackAction = customBackAction
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     // MARK: - Methods
 
+    /// Setting up custom navigation with it's back button if any.
     open func doSetup() {
         doCustomNavigationSetup()
         doCustomBackNavigationSetup()
     }
 
     private func doCustomNavigationSetup() {
-        if let customNavigation = customNavigation, let navigationController = navigationController {
+        if let customNavigation = customNavigation {
             navigationController.navigationBar.barTintColor = customNavigation.barBackgroundColor ?? UIColor.white
             navigationController.navigationBar.isTranslucent = customNavigation.isBarTranslucent ?? true
 
@@ -62,7 +66,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
     }
 
     private func doCustomBackNavigationSetup() {
-        if let customBackNavigation = customBackNavigation, let navigationController = navigationController {
+        if let customBackNavigation = customBackNavigation {
             let navigationItem = navigationController.navigationItem
             navigationItem.leftBarButtonItems = []
 
@@ -102,7 +106,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
     func backTappedAction(sender: Any) {
         if let customBackAction = customBackAction {
             customBackAction.customizedBackTapped(sender: sender)
-        } else if let navigationController = navigationController {
+        } else {
             _ = navigationController.popViewController(animated: false)
         }
     }
