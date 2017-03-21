@@ -7,3 +7,5 @@ before_install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
   - xcodebuild clean build test -project NavigationKit.xcodeproj -scheme '$SCHEME' -sdk '$SDK' -destination '$DESTINATION' -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO | xcpretty -c
+after_success:
+  - coveralls
