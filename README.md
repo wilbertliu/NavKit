@@ -31,7 +31,7 @@ In order to define the navigation bar appearance,
 we should make a class that conforms to `NavigationConfig` protocol.
 Here is an example of defining the navigation bar background color :
 
-```
+```swift
 import Foundation
 import NavigationKit
 
@@ -53,7 +53,7 @@ To customize the back button appearance, we should make a class that conforms
 to `BackConfig` protocol. Here is an example of defining the back button
 image and text on it's right :
 
-```
+```swift
 import Foundation
 import NavigationKit
 
@@ -76,7 +76,7 @@ If we define the back button experience, by default the user would be directed t
 previous screen when tapping into the button. But sometimes we need to define the custom
 behavior on some specific screen. In order to do that, we should make a class that conforms to `BackActionConfig` protocol, or possibly just conform the protocol from the respecting controller's class. Let's say we want to direct user to the "root screen", here is an example :
 
-```
+```swift
 import UIKit
 import NavigationKit
 
@@ -95,7 +95,7 @@ class ViewController: UIViewController, BackActionConfig {
 
 To make it worked, we have to instantiate an object of `NavigationKit` class in *every view controller*, and glue all the things that we have defined above.
 
-```
+```swift
 import UIKit
 import NavigationKit
 
