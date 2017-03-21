@@ -60,7 +60,7 @@ import NavigationKit
 class MyBackConfig: BackConfig {
 
     var backImage: UIImage {
-        return UIImage(named: "Back")
+        return UIImage(named: "Back")!
     }
 
     var backText: String {
@@ -101,13 +101,17 @@ import NavigationKit
 
 class ViewController: UIViewController, BackActionConfig {
 
+    // MARK: - Properties
+
+    var navigationKit: NavigationKit!
+
     // MARK: - Life Cycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let navigationController = navigationController {
-            let navigationKit = NavigationKit(
+            navigationKit = NavigationKit(
                 navigationController: navigationController,
                 navigationItem: navigationItem
             )
