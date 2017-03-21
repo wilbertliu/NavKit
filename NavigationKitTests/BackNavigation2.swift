@@ -11,14 +11,6 @@ import NavigationKit
 
 class BackNavigation2: BackConfig {
 
-    var backActionConfig: BackActionConfig?
-
-    required init() { }
-
-    required init(backActionConfig: BackActionConfig?) {
-        self.backActionConfig = backActionConfig
-    }
-
     var backImage: UIImage {
         return UIImage()
     }

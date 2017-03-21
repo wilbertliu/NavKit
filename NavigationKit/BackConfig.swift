@@ -12,24 +12,6 @@ import Foundation
 /// how the back button looks like and behave.
 @objc public protocol BackConfig {
 
-    // MARK: - Required
-
-    /// It stores a type that conforms to BackActionConfig protocol
-    /// that would be used to setup custom action of back button.
-    @objc var backActionConfig: BackActionConfig? { get set }
-
-    /// Required initializer to set whether or not the BackConfig type has
-    /// a custom back action configuration that would be used as an action
-    /// when the back button has tapped.
-    ///
-    /// - Parameter backActionConfig: A type that conforms to BackActionConfig protocol.
-    /// Set nil if you don't want to have a custom action configuration.
-    @objc init(backActionConfig: BackActionConfig?)
-
-    /// Required initializer to enable instantiation without
-    /// having to put an instance of BackActionConfig type as an argument.
-    @objc init()
-
     // MARK: - Optional
 
     /// Specify this property to determine the image that would be used as

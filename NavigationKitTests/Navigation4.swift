@@ -11,14 +11,6 @@ import NavigationKit
 
 class Navigation4: NavigationConfig {
 
-    var backConfig: BackConfig?
-
-    required init() { }
-
-    required init(backConfig: BackConfig?) {
-        self.backConfig = backConfig
-    }
-
     var titleColor: UIColor {
         return UIColor.white
     }

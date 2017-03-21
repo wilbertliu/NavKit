@@ -11,14 +11,6 @@ import NavigationKit
 
 class Navigation2: NavigationConfig {
 
-    var backConfig: BackConfig?
-
-    required init() { }
-
-    required init(backConfig: BackConfig?) {
-        self.backConfig = backConfig
-    }
-
     var isBarTranslucent: Bool {
         return false
     }
