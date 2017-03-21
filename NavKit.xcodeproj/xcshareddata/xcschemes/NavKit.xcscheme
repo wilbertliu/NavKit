@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CFE5912F1E7D3EE6004C536B"
-               BuildableName = "NavigationKit.framework"
-               BlueprintName = "NavigationKit"
-               ReferencedContainer = "container:NavigationKit.xcodeproj">
+               BuildableName = "NavKit.framework"
+               BlueprintName = "NavKit"
+               ReferencedContainer = "container:NavKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CFE591381E7D3EE6004C536B"
-               BuildableName = "NavigationKitTests.xctest"
-               BlueprintName = "NavigationKitTests"
-               ReferencedContainer = "container:NavigationKit.xcodeproj">
+               BuildableName = "NavKitTests.xctest"
+               BlueprintName = "NavKitTests"
+               ReferencedContainer = "container:NavKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CFE5912F1E7D3EE6004C536B"
-            BuildableName = "NavigationKit.framework"
-            BlueprintName = "NavigationKit"
-            ReferencedContainer = "container:NavigationKit.xcodeproj">
+            BuildableName = "NavKit.framework"
+            BlueprintName = "NavKit"
+            ReferencedContainer = "container:NavKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CFE5912F1E7D3EE6004C536B"
-            BuildableName = "NavigationKit.framework"
-            BlueprintName = "NavigationKit"
-            ReferencedContainer = "container:NavigationKit.xcodeproj">
+            BuildableName = "NavKit.framework"
+            BlueprintName = "NavKit"
+            ReferencedContainer = "container:NavKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CFE5912F1E7D3EE6004C536B"
-            BuildableName = "NavigationKit.framework"
-            BlueprintName = "NavigationKit"
-            ReferencedContainer = "container:NavigationKit.xcodeproj">
+            BuildableName = "NavKit.framework"
+            BlueprintName = "NavKit"
+            ReferencedContainer = "container:NavKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

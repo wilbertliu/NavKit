@@ -1,5 +1,5 @@
 //
-//  BackNavigation1.swift
+//  Navigation5.swift
 //  NavigationKit
 //
 //  Created by Wilbert Liu on 3/19/17.
@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import NavigationKit
+import NavKit
 
-class BackNavigation1: BackConfig {
+class Navigation5: NavigationConfig {
 
-    var backImage: UIImage {
-        return UIImage()
+    var titleFont: UIFont {
+        return UIFont.systemFont(ofSize: 20)
     }
 
 }

@@ -1,11 +1,11 @@
 language: objective-c
-xcode_project: NavigationKit.xcodeproj
-xcode_scheme: NavigationKit
+xcode_project: NavKit.xcodeproj
+xcode_scheme: NavKit
 env:
-  - DESTINATION='OS=10.0,name=iPhone 7' SCHEME='NavigationKit' SDK=iphonesimulator10.0
+  - DESTINATION='OS=10.0,name=iPhone 7' SCHEME='NavKit' SDK=iphonesimulator10.0
 before_install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-  - xcodebuild clean build test -project NavigationKit.xcodeproj -scheme '$SCHEME' -sdk '$SDK' -destination '$DESTINATION' -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO | xcpretty -c
+  - xcodebuild clean build test -project NavKit.xcodeproj -scheme '$SCHEME' -sdk '$SDK' -destination '$DESTINATION' -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash)

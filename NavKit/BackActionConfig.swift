@@ -1,6 +1,6 @@
 //
 //  BackActionConfig.swift
-//  NavigationKit
+//  NavKit
 //
 //  Created by Wilbert Liu on 3/19/17.
 //  Copyright © 2017 Wilbert Liu. All rights reserved.

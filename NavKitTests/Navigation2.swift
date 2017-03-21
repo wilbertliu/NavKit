@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NavigationKit
+import NavKit
 
 class Navigation2: NavigationConfig {
 

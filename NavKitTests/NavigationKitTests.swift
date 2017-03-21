@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import NavigationKit
+@testable import NavKit
 
 class NavigationKitTests: XCTestCase {
 

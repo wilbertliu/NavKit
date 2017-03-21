@@ -1,7 +1,7 @@
-# NavigationKit
+# NavKit
 
-[![Build Status](https://travis-ci.org/wilbertliu/NavigationKit.svg?branch=master)](https://travis-ci.org/wilbertliu/NavigationKit)
-[![codecov](https://codecov.io/gh/wilbertliu/NavigationKit/branch/master/graph/badge.svg)](https://codecov.io/gh/wilbertliu/NavigationKit)
+[![Build Status](https://travis-ci.org/wilbertliu/NavKit.svg?branch=master)](https://travis-ci.org/wilbertliu/NavKit)
+[![codecov](https://codecov.io/gh/wilbertliu/NavKit/branch/master/graph/badge.svg)](https://codecov.io/gh/wilbertliu/NavKit)
 
 Simple and integrated way to customize navigation bar experience on our app.
 It should save our time that we usually use to make abstraction of navigation bar,
@@ -14,7 +14,7 @@ back button, and so on.
 Add the following line into the `Podfile` :
 
 ```
-pod 'NavigationKit'
+pod 'NavKit'
 ```
 
 After that, run the following command :
@@ -33,7 +33,7 @@ Here is an example of defining the navigation bar background color :
 
 ```swift
 import Foundation
-import NavigationKit
+import NavKit
 
 class MyNavigationConfig: NavigationConfig {
 
@@ -55,7 +55,7 @@ image and text on it's right :
 
 ```swift
 import Foundation
-import NavigationKit
+import NavKit
 
 class MyBackConfig: BackConfig {
 
@@ -78,7 +78,7 @@ behavior on some specific screen. In order to do that, we should make a class th
 
 ```swift
 import UIKit
-import NavigationKit
+import NavKit
 
 class ViewController: UIViewController, BackActionConfig {
 
@@ -97,7 +97,7 @@ To make it worked, we have to instantiate an object of `NavigationKit` class in 
 
 ```swift
 import UIKit
-import NavigationKit
+import NavKit
 
 class ViewController: UIViewController, BackActionConfig {
 

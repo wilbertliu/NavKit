@@ -1,5 +1,5 @@
 //
-//  Navigation4.swift
+//  BackNavigation1.swift
 //  NavigationKit
 //
 //  Created by Wilbert Liu on 3/19/17.
@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import NavigationKit
+import NavKit
 
-class Navigation4: NavigationConfig {
+class BackNavigation1: BackConfig {
 
-    var titleColor: UIColor {
-        return UIColor.white
+    var backImage: UIImage {
+        return UIImage()
     }
 
 }
