@@ -1,7 +1,7 @@
 # NavigationKit
 
 [![Build Status](https://travis-ci.org/wilbertliu/NavigationKit.svg?branch=master)](https://travis-ci.org/wilbertliu/NavigationKit)
-[![Coverage Status](https://coveralls.io/repos/github/wilbertliu/NavigationKit/badge.svg?branch=master)](https://coveralls.io/github/wilbertliu/NavigationKit?branch=master)
+[![codecov](https://codecov.io/gh/wilbertliu/NavigationKit/branch/master/graph/badge.svg)](https://codecov.io/gh/wilbertliu/NavigationKit)
 
 Simple and integrated way to customize navigation bar experience on our app.
 It should save our time that we usually use to make abstraction of navigation bar,
