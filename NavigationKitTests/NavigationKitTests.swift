@@ -109,8 +109,8 @@ class NavigationKitTests: XCTestCase {
         let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
         XCTAssertNotNil(imageButton.currentImage)
 
-        let textButton = navigationItem.leftBarButtonItems!.last!.customView as! UIButton
-        XCTAssertEqual(textButton.currentTitle, "Back")
+        let textButton = navigationItem.leftBarButtonItems!.last!.title
+        XCTAssertEqual(textButton, "Back")
     }
 
     func testBackAction() {

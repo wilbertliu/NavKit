@@ -72,7 +72,8 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
             navigationItem.leftBarButtonItems = []
 
             if let backImage = backConfig.backImage {
-                let imageButton = UIButton()
+                let imageButtonFrame = CGRect(x: 0, y: 0, width: backImage.size.width, height: backImage.size.height)
+                let imageButton = UIButton(frame: imageButtonFrame)
                 imageButton.setImage(backImage, for: .normal)
                 imageButton.addTarget(self, action: #selector(backTappedAction(sender:)), for: .touchUpInside)
 
@@ -81,11 +82,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
             }
 
             if let backText = backConfig.backText {
-                let textButton = UIButton()
-                textButton.setTitle(backText, for: .normal)
-                textButton.addTarget(self, action: #selector(backTappedAction(sender:)), for: .touchUpInside)
-
-                let textBarButtonItem = UIBarButtonItem(customView: textButton)
+                let textBarButtonItem = UIBarButtonItem(title: backText, style: .plain, target: self, action: #selector(backTappedAction(sender:)))
                 navigationItem.leftBarButtonItems!.append(textBarButtonItem)
             }
 
@@ -108,7 +105,7 @@ open class NavigationKit: NSObject, UIGestureRecognizerDelegate {
         if let backActionConfig = backActionConfig {
             backActionConfig.backTappedAction(sender: sender)
         } else {
-            _ = navigationController.popViewController(animated: false)
+            _ = navigationController.popViewController(animated: true)
         }
     }
 
