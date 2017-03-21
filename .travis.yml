@@ -2,6 +2,6 @@ language: objective-c
 xcode_project: NavigationKit.xcodeproj
 xcode_scheme: NavigationKit
 script:
-  - xcodebuild -scheme NavigationKit -project NavigationKit.xcodeproj -sdk iphonesimulator9.3 -destination 'platform=iOS Simulator,name=iPhone 7,OS=9.3' build test CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO
+  - xcodebuild -scheme NavigationKit -project NavigationKit.xcodeproj -sdk iphonesimulator9.3 -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.3' build test CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO
 after_success:
   - bash <(curl -s https://codecov.io/bash)
