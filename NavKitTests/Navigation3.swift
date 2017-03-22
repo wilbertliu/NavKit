@@ -1,6 +1,6 @@
 //
 //  Navigation3.swift
-//  NavigationKit
+//  NavKit
 //
 //  Created by Wilbert Liu on 3/18/17.
 //  Copyright © 2017 Wilbert Liu. All rights reserved.
@@ -11,8 +11,6 @@ import NavKit
 
 class Navigation3: NavigationConfig {
 
-    var isBarUsingShadow: Bool {
-        return false
-    }
+    var isBarUsingShadow: Bool = false
 
 }

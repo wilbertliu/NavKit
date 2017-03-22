@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF2468C11E811C09003B570B /* BackActionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468BD1E811C09003B570B /* BackActionConfig.swift */; };
-		CF2468C21E811C09003B570B /* BackConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468BE1E811C09003B570B /* BackConfig.swift */; };
 		CF2468C41E811C09003B570B /* NavigationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468C01E811C09003B570B /* NavigationKit.swift */; };
 		CF2468C81E811C14003B570B /* NavKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CF2468C61E811C14003B570B /* NavKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF2468DF1E811E5E003B570B /* NavigationKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468D91E811C3D003B570B /* NavigationKitTests.swift */; };
-		CF2468E01E811E68003B570B /* BackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468C91E811C2E003B570B /* BackAction.swift */; };
-		CF2468E11E811E68003B570B /* BackNavigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CA1E811C2E003B570B /* BackNavigation1.swift */; };
-		CF2468E21E811E68003B570B /* BackNavigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CB1E811C2E003B570B /* BackNavigation2.swift */; };
 		CF2468E31E811E68003B570B /* Navigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CC1E811C2E003B570B /* Navigation1.swift */; };
 		CF2468E41E811E68003B570B /* Navigation2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CD1E811C2E003B570B /* Navigation2.swift */; };
 		CF2468E51E811E68003B570B /* Navigation3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CE1E811C2E003B570B /* Navigation3.swift */; };
 		CF2468E61E811E68003B570B /* Navigation4.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CF1E811C2E003B570B /* Navigation4.swift */; };
 		CF2468E71E811E68003B570B /* Navigation5.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468D01E811C2E003B570B /* Navigation5.swift */; };
+		CF3B710B1E82208A00F43D0F /* Navigation6.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B710A1E82208A00F43D0F /* Navigation6.swift */; };
+		CF3B710D1E8220CF00F43D0F /* Navigation7.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B710C1E8220CF00F43D0F /* Navigation7.swift */; };
+		CF3B710F1E82212D00F43D0F /* Navigation8.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B710E1E82212D00F43D0F /* Navigation8.swift */; };
 		CFCB9B451E8121620021A294 /* NavigationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB9B441E8121620021A294 /* NavigationConfig.swift */; };
 		CFE5913A1E7D3EE6004C536B /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE591301E7D3EE6004C536B /* NavKit.framework */; };
 /* End PBXBuildFile section */
@@ -35,14 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CF2468BD1E811C09003B570B /* BackActionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackActionConfig.swift; path = NavKit/BackActionConfig.swift; sourceTree = SOURCE_ROOT; };
-		CF2468BE1E811C09003B570B /* BackConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackConfig.swift; path = NavKit/BackConfig.swift; sourceTree = SOURCE_ROOT; };
 		CF2468C01E811C09003B570B /* NavigationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationKit.swift; path = NavKit/NavigationKit.swift; sourceTree = SOURCE_ROOT; };
 		CF2468C51E811C14003B570B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NavKit/Info.plist; sourceTree = SOURCE_ROOT; };
 		CF2468C61E811C14003B570B /* NavKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavKit.h; path = NavKit/NavKit.h; sourceTree = SOURCE_ROOT; };
-		CF2468C91E811C2E003B570B /* BackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackAction.swift; path = NavKitTests/BackAction.swift; sourceTree = SOURCE_ROOT; };
-		CF2468CA1E811C2E003B570B /* BackNavigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackNavigation1.swift; path = NavKitTests/BackNavigation1.swift; sourceTree = SOURCE_ROOT; };
-		CF2468CB1E811C2E003B570B /* BackNavigation2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackNavigation2.swift; path = NavKitTests/BackNavigation2.swift; sourceTree = SOURCE_ROOT; };
 		CF2468CC1E811C2E003B570B /* Navigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation1.swift; path = NavKitTests/Navigation1.swift; sourceTree = SOURCE_ROOT; };
 		CF2468CD1E811C2E003B570B /* Navigation2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation2.swift; path = NavKitTests/Navigation2.swift; sourceTree = SOURCE_ROOT; };
 		CF2468CE1E811C2E003B570B /* Navigation3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation3.swift; path = NavKitTests/Navigation3.swift; sourceTree = SOURCE_ROOT; };
@@ -50,6 +43,9 @@
 		CF2468D01E811C2E003B570B /* Navigation5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation5.swift; path = NavKitTests/Navigation5.swift; sourceTree = SOURCE_ROOT; };
 		CF2468D91E811C3D003B570B /* NavigationKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationKitTests.swift; path = NavKitTests/NavigationKitTests.swift; sourceTree = SOURCE_ROOT; };
 		CF2468DB1E811C46003B570B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NavKitTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		CF3B710A1E82208A00F43D0F /* Navigation6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation6.swift; path = NavKitTests/Navigation6.swift; sourceTree = SOURCE_ROOT; };
+		CF3B710C1E8220CF00F43D0F /* Navigation7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation7.swift; path = NavKitTests/Navigation7.swift; sourceTree = SOURCE_ROOT; };
+		CF3B710E1E82212D00F43D0F /* Navigation8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation8.swift; path = NavKitTests/Navigation8.swift; sourceTree = SOURCE_ROOT; };
 		CFCB9B441E8121620021A294 /* NavigationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationConfig.swift; path = NavKit/NavigationConfig.swift; sourceTree = SOURCE_ROOT; };
 		CFE591301E7D3EE6004C536B /* NavKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE591391E7D3EE6004C536B /* NavKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,14 +81,14 @@
 		CF3702051E7D9B4300D38715 /* Fakers */ = {
 			isa = PBXGroup;
 			children = (
-				CF2468C91E811C2E003B570B /* BackAction.swift */,
-				CF2468CA1E811C2E003B570B /* BackNavigation1.swift */,
-				CF2468CB1E811C2E003B570B /* BackNavigation2.swift */,
 				CF2468CC1E811C2E003B570B /* Navigation1.swift */,
 				CF2468CD1E811C2E003B570B /* Navigation2.swift */,
 				CF2468CE1E811C2E003B570B /* Navigation3.swift */,
 				CF2468CF1E811C2E003B570B /* Navigation4.swift */,
 				CF2468D01E811C2E003B570B /* Navigation5.swift */,
+				CF3B710A1E82208A00F43D0F /* Navigation6.swift */,
+				CF3B710C1E8220CF00F43D0F /* Navigation7.swift */,
+				CF3B710E1E82212D00F43D0F /* Navigation8.swift */,
 			);
 			name = Fakers;
 			sourceTree = "<group>";
@@ -109,8 +105,6 @@
 		CFBE26A91E7D405500464B61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CF2468BD1E811C09003B570B /* BackActionConfig.swift */,
-				CF2468BE1E811C09003B570B /* BackConfig.swift */,
 				CFCB9B441E8121620021A294 /* NavigationConfig.swift */,
 				CF2468C01E811C09003B570B /* NavigationKit.swift */,
 			);
@@ -268,9 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF2468C21E811C09003B570B /* BackConfig.swift in Sources */,
 				CF2468C41E811C09003B570B /* NavigationKit.swift in Sources */,
-				CF2468C11E811C09003B570B /* BackActionConfig.swift in Sources */,
 				CFCB9B451E8121620021A294 /* NavigationConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,15 +271,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3B710F1E82212D00F43D0F /* Navigation8.swift in Sources */,
 				CF2468E71E811E68003B570B /* Navigation5.swift in Sources */,
 				CF2468E61E811E68003B570B /* Navigation4.swift in Sources */,
-				CF2468E01E811E68003B570B /* BackAction.swift in Sources */,
 				CF2468E31E811E68003B570B /* Navigation1.swift in Sources */,
+				CF3B710D1E8220CF00F43D0F /* Navigation7.swift in Sources */,
 				CF2468E51E811E68003B570B /* Navigation3.swift in Sources */,
-				CF2468E11E811E68003B570B /* BackNavigation1.swift in Sources */,
 				CF2468DF1E811E5E003B570B /* NavigationKitTests.swift in Sources */,
 				CF2468E41E811E68003B570B /* Navigation2.swift in Sources */,
-				CF2468E21E811E68003B570B /* BackNavigation2.swift in Sources */,
+				CF3B710B1E82208A00F43D0F /* Navigation6.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

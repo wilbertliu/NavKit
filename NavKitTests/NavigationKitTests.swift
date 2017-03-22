@@ -1,6 +1,6 @@
 //
 //  NavigationKitTests.swift
-//  NavigationKitTests
+//  NavKitTests
 //
 //  Created by Wilbert Liu on 3/18/17.
 //  Copyright © 2017 Wilbert Liu. All rights reserved.
@@ -32,8 +32,11 @@ class NavigationKitTests: XCTestCase {
     // MARK: - Tests
 
     func testBarBackgroundColor() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation1()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation1(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -41,8 +44,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testBarTranslucency() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation2()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation2(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -50,8 +56,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testBarShadow() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation3()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation3(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -59,8 +68,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testTitleColor() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation4()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation4(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -72,8 +84,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testTitleFont() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation5()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation5(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -85,9 +100,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testBackImage() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation1()
-        navigationKit.backConfig = BackNavigation1()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation6(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -98,9 +115,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testBackImageWithText() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation1()
-        navigationKit.backConfig = BackNavigation2()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation7(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -114,9 +133,11 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testBackAction() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation1()
-        navigationKit.backConfig = BackNavigation1()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation7(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -128,20 +149,27 @@ class NavigationKitTests: XCTestCase {
 
         XCTAssertEqual(navigationController.viewControllers.count, 3)
 
-        XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 1)
+        XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 2)
 
         let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
         XCTAssertNotNil(imageButton.currentImage)
 
-        navigationKit.backTappedAction(sender: imageButton)
+        navigationKit.backTapped(sender: imageButton)
         XCTAssertNotEqual(navigationController.viewControllers.count, 1)
     }
 
     func testCustomBackAction() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation1()
-        navigationKit.backConfig = BackNavigation1()
-        navigationKit.backActionConfig = BackAction(navigationController: navigationController)
+        let navigation = Navigation8()
+
+        navigation.backTappedAction = { [unowned self] sender in
+            _ = self.navigationController.popToRootViewController(animated: false)
+        }
+
+        let navigationKit = NavigationKit(
+            navigationConfig: navigation,
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
@@ -158,14 +186,16 @@ class NavigationKitTests: XCTestCase {
         let imageButton = navigationItem.leftBarButtonItems!.first!.customView as! UIButton
         XCTAssertNotNil(imageButton.currentImage)
 
-        navigationKit.backTappedAction(sender: imageButton)
+        navigationKit.backTapped(sender: imageButton)
         XCTAssertEqual(navigationController.viewControllers.count, 1)
     }
 
     func testInteractivePopupGestureDelegate() {
-        let navigationKit = NavigationKit(navigationController: navigationController, navigationItem: navigationItem)
-        navigationKit.navigationConfig = Navigation1()
-        navigationKit.backConfig = BackNavigation1()
+        let navigationKit = NavigationKit(
+            navigationConfig: Navigation6(),
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
 
         navigationKit.doSetup()
 
