@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/wilbertliu/NavKit.svg?branch=master)](https://travis-ci.org/wilbertliu/NavKit)
 [![codecov](https://codecov.io/gh/wilbertliu/NavKit/branch/master/graph/badge.svg)](https://codecov.io/gh/wilbertliu/NavKit)
 
-Simple and integrated way to customize navigation bar experience on our app.
+Simple and integrated way to customize navigation bar experience on iOS app.
 It should save our time that we usually use to make abstraction of navigation bar,
 back button, and so on.
 
@@ -25,11 +25,11 @@ $ pod install
 
 ## Usage
 
-### Navigation Bar Appearance
+### Defining Global Configuration
 
-In order to define the navigation bar appearance,
-we should make a class that conforms to `NavigationConfig` protocol.
-Here is an example of defining the navigation bar background color :
+We usually want a global configuration for our navigation bar experience to maintain
+design consistency throughout the app. In order to do that, we should make a class
+that conforms to `NavigationConfig` protocol. Without further ado, here is an example :
 
 ```swift
 import Foundation
@@ -37,61 +37,20 @@ import NavKit
 
 class MyNavigationConfig: NavigationConfig {
 
-    var barBackgroundColor: UIColor {
-        return .blue
-    }
+    var barBackgroundColor: UIColor = .red
+    var isBarTranslucent: Bool = false
+    var backImage: UIImage = UIImage(named: "Back")!
+    var backTappedAction: ((Any) -> Void)?
 
 }
 ```
 
-There are other properties that we could define. Make sure to check
-`NavigationConfig` protocol for further usage.
+From example above, we just defined a configuration for navigation bar background color,
+it's translucency, the back button image, and also whether or not we would have a custom
+action when the back button is tapped. When the value of `backTappedAction` property is nil,
+the action that would be performed is the standard pop animation. There are other properties that we could define, just make sure to check `NavigationConfig` protocol for further usage.
 
-### Back Button Appearance
-
-To customize the back button appearance, we should make a class that conforms
-to `BackConfig` protocol. Here is an example of defining the back button
-image and text on it's right :
-
-```swift
-import Foundation
-import NavKit
-
-class MyBackConfig: BackConfig {
-
-    var backImage: UIImage {
-        return UIImage(named: "Back")!
-    }
-
-    var backText: String {
-        return "Back"
-    }
-
-}
-```
-
-### Back Button Action
-
-If we define the back button experience, by default the user would be directed to the
-previous screen when tapping into the button. But sometimes we need to define the custom
-behavior on some specific screen. In order to do that, we should make a class that conforms to `BackActionConfig` protocol, or possibly just conform the protocol from the respecting controller's class. Let's say we want to direct user to the "root screen", here is an example :
-
-```swift
-import UIKit
-import NavKit
-
-class ViewController: UIViewController, BackActionConfig {
-
-    // MARK: - Back Action Config
-
-    func backTappedAction(sender: Any) {
-        _ = navigationController?.popToRootViewController(animated: true)
-    }
-
-}
-```
-
-### Gluing Altogether
+### Consuming Global Configuration
 
 To make it worked, we have to instantiate an object of `NavigationKit` class in *every view controller*, and glue all the things that we have defined above.
 
@@ -99,7 +58,7 @@ To make it worked, we have to instantiate an object of `NavigationKit` class in 
 import UIKit
 import NavKit
 
-class ViewController: UIViewController, BackActionConfig {
+class ViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -112,28 +71,60 @@ class ViewController: UIViewController, BackActionConfig {
 
         if let navigationController = navigationController {
             navigationKit = NavigationKit(
+                navigationConfig: MyNavigationConfig(),
                 navigationController: navigationController,
                 navigationItem: navigationItem
             )
-
-            navigationKit.navigationConfig = MyNavigationConfig()
-            navigationKit.backConfig = MyBackConfig()
-            navigationKit.backActionConfig = self
 
             navigationKit.doSetup()
         }
     }
 
-    // MARK: - Back Action Config
+}
+```
 
-    func backTappedAction(sender: Any) {
-        _ = navigationController?.popToRootViewController(animated: true)
+### Customizing Experience on Specific View Controller
+
+In order to customize the navigation bar experience on some specific view controller,
+we just have to set a new value to any property that we have defined in a class
+that conforms to `NavigationConfig` protocol. Here is an example to change
+the navigation bar background color and it's behavior when the back button is tapped :
+
+```swift
+import UIKit
+import NavKit
+
+class ViewController: UIViewController {
+
+    // MARK: - Properties
+
+    var navigationKit: NavigationKit!
+
+    // MARK: - Life Cycles
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let navigationController = navigationController {
+            let navigationConfig = MyNavigationConfig()
+            navigationConfig.barBackgroundColor = .blue
+
+            navigationConfig.backTappedAction = { [unowned self] sender in
+                _ = self.navigationController.popToRootViewController(animated: true)
+            }
+
+            navigationKit = NavigationKit(
+                navigationConfig: navigationConfig,
+                navigationController: navigationController,
+                navigationItem: navigationItem
+            )
+
+            navigationKit.doSetup()
+        }
     }
 
 }
 ```
-
-Note : If you are sure that your project would use a single configuration for your navigation bar, you should consider to put the instantiation above into an *extension*. Thus, you just have to call the method on your *extension* in every controller. Hence, makes your code simpler.
 
 ## Support
 
