@@ -9,8 +9,6 @@
 import Foundation
 import NavKit
 
-class Navigation5: NavigationConfig {
-
+class Navigation5: CustomizableNavigation {
     var titleFont: UIFont = UIFont.systemFont(ofSize: 20)
-
 }

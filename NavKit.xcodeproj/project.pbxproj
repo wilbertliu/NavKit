@@ -18,7 +18,7 @@
 		CF3B710B1E82208A00F43D0F /* Navigation6.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B710A1E82208A00F43D0F /* Navigation6.swift */; };
 		CF3B710D1E8220CF00F43D0F /* Navigation7.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B710C1E8220CF00F43D0F /* Navigation7.swift */; };
 		CF3B710F1E82212D00F43D0F /* Navigation8.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B710E1E82212D00F43D0F /* Navigation8.swift */; };
-		CFCB9B451E8121620021A294 /* NavigationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB9B441E8121620021A294 /* NavigationConfig.swift */; };
+		CFCB9B451E8121620021A294 /* CustomizableNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB9B441E8121620021A294 /* CustomizableNavigation.swift */; };
 		CFE5913A1E7D3EE6004C536B /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE591301E7D3EE6004C536B /* NavKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		CF3B710A1E82208A00F43D0F /* Navigation6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation6.swift; path = NavKitTests/Navigation6.swift; sourceTree = SOURCE_ROOT; };
 		CF3B710C1E8220CF00F43D0F /* Navigation7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation7.swift; path = NavKitTests/Navigation7.swift; sourceTree = SOURCE_ROOT; };
 		CF3B710E1E82212D00F43D0F /* Navigation8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation8.swift; path = NavKitTests/Navigation8.swift; sourceTree = SOURCE_ROOT; };
-		CFCB9B441E8121620021A294 /* NavigationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationConfig.swift; path = NavKit/NavigationConfig.swift; sourceTree = SOURCE_ROOT; };
+		CFCB9B441E8121620021A294 /* CustomizableNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomizableNavigation.swift; path = NavKit/CustomizableNavigation.swift; sourceTree = SOURCE_ROOT; };
 		CFE591301E7D3EE6004C536B /* NavKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE591391E7D3EE6004C536B /* NavKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,7 +105,7 @@
 		CFBE26A91E7D405500464B61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CFCB9B441E8121620021A294 /* NavigationConfig.swift */,
+				CFCB9B441E8121620021A294 /* CustomizableNavigation.swift */,
 				CF2468C01E811C09003B570B /* NavigationKit.swift */,
 			);
 			name = Sources;
@@ -207,7 +207,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Wilbert Liu";
 				TargetAttributes = {
 					CFE5912F1E7D3EE6004C536B = {
@@ -263,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF2468C41E811C09003B570B /* NavigationKit.swift in Sources */,
-				CFCB9B451E8121620021A294 /* NavigationConfig.swift in Sources */,
+				CFCB9B451E8121620021A294 /* CustomizableNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +398,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;

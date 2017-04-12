@@ -10,7 +10,6 @@ import XCTest
 @testable import NavKit
 
 class NavigationKitTests: XCTestCase {
-
     // MARK: - Properties
 
     var navigationController: UINavigationController!
@@ -32,49 +31,55 @@ class NavigationKitTests: XCTestCase {
     // MARK: - Tests
 
     func testBarBackgroundColor() {
+        let navigation = Navigation1()
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation1(),
+            customizableNavigation: navigation,
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
-        XCTAssertEqual(navigationController.navigationBar.barTintColor, UIColor.black)
+        XCTAssertEqual(navigationController.navigationBar.barTintColor, .black)
+
+        navigation.barBackgroundColor = .blue
+        navigationKit.updateNavigation()
+
+        XCTAssertEqual(navigationController.navigationBar.barTintColor, .blue)
     }
 
     func testBarTranslucency() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation2(),
+            customizableNavigation: Navigation2(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         XCTAssertFalse(navigationController.navigationBar.isTranslucent)
     }
 
     func testBarShadow() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation3(),
+            customizableNavigation: Navigation3(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         XCTAssertNotNil(navigationController.navigationBar.shadowImage)
     }
 
     func testTitleColor() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation4(),
+            customizableNavigation: Navigation4(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         let titleTextAttributes = navigationController.navigationBar.titleTextAttributes
         let titleColor = titleTextAttributes?[NSForegroundColorAttributeName] as! UIColor
@@ -85,12 +90,12 @@ class NavigationKitTests: XCTestCase {
 
     func testTitleFont() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation5(),
+            customizableNavigation: Navigation5(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         let titleTextAttributes = navigationController.navigationBar.titleTextAttributes
         let titleFont = titleTextAttributes?[NSFontAttributeName] as! UIFont
@@ -101,12 +106,12 @@ class NavigationKitTests: XCTestCase {
 
     func testBackImage() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation6(),
+            customizableNavigation: Navigation6(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 1)
 
@@ -116,12 +121,12 @@ class NavigationKitTests: XCTestCase {
 
     func testBackImageWithText() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation7(),
+            customizableNavigation: Navigation7(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         XCTAssertEqual(navigationItem.leftBarButtonItems!.count, 2)
 
@@ -134,12 +139,12 @@ class NavigationKitTests: XCTestCase {
 
     func testBackAction() {
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation7(),
+            customizableNavigation: Navigation7(),
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         navigationController.viewControllers = [
             UIViewController(),
@@ -166,12 +171,12 @@ class NavigationKitTests: XCTestCase {
         }
 
         let navigationKit = NavigationKit(
-            navigationConfig: navigation,
+            customizableNavigation: navigation,
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         navigationController.viewControllers = [
             UIViewController(),
@@ -191,15 +196,32 @@ class NavigationKitTests: XCTestCase {
     }
 
     func testInteractivePopupGestureDelegate() {
+        let navigation = Navigation6()
         let navigationKit = NavigationKit(
-            navigationConfig: Navigation6(),
+            customizableNavigation: navigation,
             navigationController: navigationController,
             navigationItem: navigationItem
         )
 
-        navigationKit.doSetup()
+        navigationKit.updateNavigation()
 
         XCTAssertTrue(navigationKit.gestureRecognizerShouldBegin(UIGestureRecognizer()))
+        XCTAssertFalse(navigation.isNavigationUsingInteractivePopGesture)
     }
 
+    func testClearBarBackground() {
+        let navigation = Navigation1()
+        navigation.barBackgroundColor = .clear
+
+        let navigationKit = NavigationKit(
+            customizableNavigation: navigation,
+            navigationController: navigationController,
+            navigationItem: navigationItem
+        )
+
+        navigationKit.updateNavigation()
+
+        XCTAssertEqual(navigationController.navigationBar.barTintColor, .clear)
+        XCTAssertNotNil(navigationController.navigationBar.backgroundImage(for: .default))
+    }
 }

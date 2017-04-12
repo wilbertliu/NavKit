@@ -9,8 +9,6 @@
 import Foundation
 import NavKit
 
-class Navigation1: NavigationConfig {
-
+class Navigation1: CustomizableNavigation {
     var barBackgroundColor: UIColor = .black
-
 }

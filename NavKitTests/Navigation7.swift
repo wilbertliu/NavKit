@@ -9,9 +9,7 @@
 import Foundation
 import NavKit
 
-class Navigation7: NavigationConfig {
-
-    var backImage: UIImage = UIImage()
-    var backText: String = "Back"
-
+class Navigation7: CustomizableNavigation {
+    var backImage: UIImage? = UIImage()
+    var backText: String? = "Back"
 }

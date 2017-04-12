@@ -9,9 +9,7 @@
 import Foundation
 import NavKit
 
-class Navigation8: NavigationConfig {
-
-    var backImage: UIImage = UIImage()
+class Navigation8: CustomizableNavigation {
+    var backImage: UIImage? = UIImage()
     var backTappedAction: ((Any) -> Void)?
-
 }

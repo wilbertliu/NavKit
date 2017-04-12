@@ -9,8 +9,7 @@
 import Foundation
 import NavKit
 
-class Navigation6: NavigationConfig {
-
-    var backImage: UIImage = UIImage()
-
+class Navigation6: CustomizableNavigation {
+    var backImage: UIImage? = UIImage()
+    var isNavigationUsingInteractivePopGesture: Bool = false
 }

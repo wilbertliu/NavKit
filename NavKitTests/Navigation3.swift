@@ -9,8 +9,6 @@
 import Foundation
 import NavKit
 
-class Navigation3: NavigationConfig {
-
+class Navigation3: CustomizableNavigation {
     var isBarUsingShadow: Bool = false
-
 }

@@ -9,8 +9,6 @@
 import Foundation
 import NavKit
 
-class Navigation4: NavigationConfig {
-
+class Navigation4: CustomizableNavigation {
     var titleColor: UIColor = .white
-
 }

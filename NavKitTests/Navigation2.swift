@@ -9,8 +9,6 @@
 import Foundation
 import NavKit
 
-class Navigation2: NavigationConfig {
-
+class Navigation2: CustomizableNavigation {
     var isBarTranslucent: Bool = false
-
 }
