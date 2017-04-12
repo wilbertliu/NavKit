@@ -1,11 +1,20 @@
 language: objective-c
-xcode_project: NavKit.xcodeproj
-xcode_scheme: NavKit
+osx_image: xcode8
 env:
-  - DESTINATION='OS=10.0,name=iPhone 7' SCHEME='NavKit' SDK=iphonesimulator10.0
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  - PROJECT=NavKit.xcodeproj
+  - SCHEME=NavKit
+  - SDK=iphonesimulator10.0
+  - DESTINATION="OS=10.0,name=iPhone 7 Plus"
 before_install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+    - gem install xcpretty -N
+    - gem install slather --no-ri --no-rdoc
 script:
-  - xcodebuild clean build test -project NavKit.xcodeproj -scheme '$SCHEME' -sdk '$SDK' -destination '$DESTINATION' -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO | xcpretty -c
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=YES ENABLE_TESTABILITY=YES test | xcpretty -c;
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+    - slather
