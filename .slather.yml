@@ -1,0 +1,6 @@
+coverage_service: coveralls
+xcodeproj: NavKit.xcodeproj
+scheme: NavKit
+source_directory: NavKit
+ignore:
+  - NavKitTests/*
