@@ -10,54 +10,118 @@ import Foundation
 
 /// It holds all required things for a type to specify the requirement of
 /// how the navigation bar with all of it's items look like and behave.
-public protocol CustomizableNavigation {
+@objc public protocol CustomizableNavigation {
     /// Specify this property to determine the navigation bar background color.
-    var barBackgroundColor: UIColor { get }
+    var barBackgroundColor: UIColor { get set }
 
     /// Specify this property to determine whether or not the navigation bar
     /// is translucent. Set the value to true if you want to have such kind like
     /// beautiful transparency effect.
-    var isBarTranslucent: Bool { get }
+    var isBarTranslucent: Bool { get set }
 
     /// Specify this property to determine whether or not the navigation bar
     /// would use shadow. Set the value to false to remove a *strange*
     /// line at the bottom of navigation bar.
-    var isBarUsingShadow: Bool { get }
+    var isBarUsingShadow: Bool { get set }
 
     /// Specify this property to determine which title color that would be used
     /// at the midst of navigation bar.
-    var titleColor: UIColor { get }
+    var titleColor: UIColor { get set }
 
     /// Specify this property to determine which title font that would be used
     /// at the midst of navigation bar.
-    var titleFont: UIFont { get }
+    var titleFont: UIFont { get set }
 
     /// Specify this property to determine the image that would be used as
     /// the back button's image.
-    var backImage: UIImage? { get }
+    var backImage: UIImage? { get set }
 
     /// Specify this property to determine the text that would be used at
     /// the right of the back button's image.
-    var backText: String? { get }
-
-    /// Specify this property to determine the action that would be called
-    /// when the back button is tapped. Note that this closure would only be triggered
-    /// if either backImage or backText is implemented.
-    var backTappedAction: ((Any) -> Void)? { get }
+    var backText: String? { get set }
 
     /// Specify this property to determine whether or not the screen could be
     /// dragged from left to right to go to the previous screen.
-    var isNavigationUsingInteractivePopGesture: Bool { get }
+    var isUsingInteractivePopGesture: Bool { get set }
+
+    /// Action that will be executed when the navigation bar has back button and it's tapped.
+    ///
+    /// - Parameter sender: The sender of action.
+    @objc func backTapped(_ sender: Any)
+
+    /// Update the navigation configuration based on the specified properties.
+    func updateNavigation()
 }
 
-public extension CustomizableNavigation {
+public extension CustomizableNavigation where Self: UIViewController, Self: UIGestureRecognizerDelegate {
     var barBackgroundColor: UIColor { return .white }
     var isBarTranslucent: Bool { return true }
     var isBarUsingShadow: Bool { return true }
     var titleColor: UIColor { return .black }
-    var titleFont: UIFont { return UIFont.systemFont(ofSize: 17) }
+    var titleFont: UIFont { return .systemFont(ofSize: 17) }
     var backImage: UIImage? { return nil }
     var backText: String? { return nil }
-    var backTappedAction: ((Any) -> Void)? { return nil }
-    var isNavigationUsingInteractivePopGesture: Bool { return true }
+    var isUsingInteractivePopGesture: Bool { return true }
+
+    func updateNavigation() {
+        let navigationBar = navigationController?.navigationBar
+        let navigationBarColor = imageWithColor(barBackgroundColor, andSize: CGSize(width: 1, height: 1))
+
+        navigationBar?.setBackgroundImage(navigationBarColor, for: .default)
+        navigationBar?.shadowImage = !isBarUsingShadow ? UIImage() : navigationBarColor
+        navigationBar?.isTranslucent = isBarTranslucent
+
+        var titleTextAttributes = navigationBar?.titleTextAttributes ?? [:]
+
+        titleTextAttributes[NSForegroundColorAttributeName] = titleColor
+        titleTextAttributes[NSFontAttributeName] = titleFont
+
+        navigationBar?.titleTextAttributes = titleTextAttributes
+
+        navigationItem.leftBarButtonItems = []
+
+        if let backImage = backImage {
+            let imageButtonFrame = CGRect(x: 0, y: 0, width: backImage.size.width, height: backImage.size.height)
+            let imageButton = UIButton(frame: imageButtonFrame)
+            imageButton.setImage(backImage, for: .normal)
+            imageButton.addTarget(self, action: #selector(backTapped(_:)), for: .touchUpInside)
+
+            let imageBarButtonItem = UIBarButtonItem(customView: imageButton)
+            navigationItem.leftBarButtonItems?.append(imageBarButtonItem)
+        }
+
+        if let backText = backText {
+            let textBarButtonItem = UIBarButtonItem(title: backText,
+                                                    style: .plain,
+                                                    target: self,
+                                                    action: #selector(backTapped(_:)))
+            navigationItem.leftBarButtonItems?.append(textBarButtonItem)
+        }
+
+        let interactivePopRecognizer = navigationController?.interactivePopGestureRecognizer
+        interactivePopRecognizer?.isEnabled = isUsingInteractivePopGesture
+        interactivePopRecognizer?.delegate = self
+    }
+
+    func backTapped(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+
+    private func imageWithColor(_ color: UIColor, andSize size: CGSize) -> UIImage? {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+
+        UIGraphicsBeginImageContext(size)
+
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(color.cgColor)
+            context.fill(rect)
+
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            return image
+        }
+
+        return nil
+    }
 }

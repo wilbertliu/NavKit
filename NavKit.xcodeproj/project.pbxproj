@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF2468C41E811C09003B570B /* NavigationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468C01E811C09003B570B /* NavigationKit.swift */; };
 		CF2468C81E811C14003B570B /* NavKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CF2468C61E811C14003B570B /* NavKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF2468DF1E811E5E003B570B /* NavigationKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468D91E811C3D003B570B /* NavigationKitTests.swift */; };
 		CF2468E31E811E68003B570B /* Navigation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CC1E811C2E003B570B /* Navigation1.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CF2468C01E811C09003B570B /* NavigationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationKit.swift; path = NavKit/NavigationKit.swift; sourceTree = SOURCE_ROOT; };
 		CF2468C51E811C14003B570B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NavKit/Info.plist; sourceTree = SOURCE_ROOT; };
 		CF2468C61E811C14003B570B /* NavKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavKit.h; path = NavKit/NavKit.h; sourceTree = SOURCE_ROOT; };
 		CF2468CC1E811C2E003B570B /* Navigation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation1.swift; path = NavKitTests/Navigation1.swift; sourceTree = SOURCE_ROOT; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				CFCB9B441E8121620021A294 /* CustomizableNavigation.swift */,
-				CF2468C01E811C09003B570B /* NavigationKit.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF2468C41E811C09003B570B /* NavigationKit.swift in Sources */,
 				CFCB9B451E8121620021A294 /* CustomizableNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
