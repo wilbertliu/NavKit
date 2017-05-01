@@ -12,6 +12,7 @@
 		CFAA099B1EB6FFE3007BCB3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFAA09991EB6FFE3007BCB3F /* Main.storyboard */; };
 		CFAA099D1EB6FFE3007BCB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAA099C1EB6FFE3007BCB3F /* Assets.xcassets */; };
 		CFAA09A01EB6FFE3007BCB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFAA099E1EB6FFE3007BCB3F /* LaunchScreen.storyboard */; };
+		CFAA09B21EB700CF007BCB3F /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAA09B11EB700CF007BCB3F /* NavKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		CFAA099C1EB6FFE3007BCB3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFAA099F1EB6FFE3007BCB3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFAA09A11EB6FFE3007BCB3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFAA09B11EB700CF007BCB3F /* NavKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavKit.framework; path = "../../build/Debug-iphoneos/NavKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAA09B21EB700CF007BCB3F /* NavKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				CFAA09941EB6FFE3007BCB3F /* NavKitExample */,
 				CFAA09931EB6FFE3007BCB3F /* Products */,
+				CFAA09B01EB700CF007BCB3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				CFAA09A11EB6FFE3007BCB3F /* Info.plist */,
 			);
 			path = NavKitExample;
+			sourceTree = "<group>";
+		};
+		CFAA09B01EB700CF007BCB3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFAA09B11EB700CF007BCB3F /* NavKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
