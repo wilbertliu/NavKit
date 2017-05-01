@@ -98,6 +98,10 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
         interactivePopRecognizer?.delegate = self
     }
 
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
     private func imageWithColor(_ color: UIColor, andSize size: CGSize) -> UIImage? {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
 
