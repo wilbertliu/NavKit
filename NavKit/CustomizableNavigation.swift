@@ -10,44 +10,39 @@ import Foundation
 
 /// It holds all required things for a type to specify the requirement of
 /// how the navigation bar with all of it's items look like and behave.
-@objc public protocol CustomizableNavigation {
+public protocol CustomizableNavigation {
     /// Specify this property to determine the navigation bar background color.
-    var barBackgroundColor: UIColor { get set }
+    var barBackgroundColor: UIColor { get }
 
     /// Specify this property to determine whether or not the navigation bar
     /// is translucent. Set the value to true if you want to have such kind like
     /// beautiful transparency effect.
-    var isBarTranslucent: Bool { get set }
+    var isBarTranslucent: Bool { get }
 
     /// Specify this property to determine whether or not the navigation bar
     /// would use shadow. Set the value to false to remove a *strange*
     /// line at the bottom of navigation bar.
-    var isBarUsingShadow: Bool { get set }
+    var isBarUsingShadow: Bool { get }
 
     /// Specify this property to determine which title color that would be used
     /// at the midst of navigation bar.
-    var titleColor: UIColor { get set }
+    var titleColor: UIColor { get }
 
     /// Specify this property to determine which title font that would be used
     /// at the midst of navigation bar.
-    var titleFont: UIFont { get set }
+    var titleFont: UIFont { get }
 
     /// Specify this property to determine the image that would be used as
     /// the back button's image.
-    var backImage: UIImage? { get set }
+    var backImage: UIImage? { get }
 
     /// Specify this property to determine the text that would be used at
     /// the right of the back button's image.
-    var backText: String? { get set }
+    var backText: String? { get }
 
     /// Specify this property to determine whether or not the screen could be
     /// dragged from left to right to go to the previous screen.
-    var isUsingInteractivePopGesture: Bool { get set }
-
-    /// Action that will be executed when the navigation bar has back button and it's tapped.
-    ///
-    /// - Parameter sender: The sender of action.
-    @objc func backTapped(_ sender: Any)
+    var isUsingInteractivePopGesture: Bool { get }
 
     /// Update the navigation configuration based on the specified properties.
     func updateNavigation()
@@ -103,10 +98,6 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
         interactivePopRecognizer?.delegate = self
     }
 
-    func backTapped(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
-    }
-
     private func imageWithColor(_ color: UIColor, andSize size: CGSize) -> UIImage? {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
 
@@ -123,5 +114,14 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
         }
 
         return nil
+    }
+}
+
+public extension UIViewController {
+    /// Action that will be executed when the navigation bar has back button and it's tapped.
+    ///
+    /// - Parameter sender: The sender of action.
+    func backTapped(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
     }
 }
