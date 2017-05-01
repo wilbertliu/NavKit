@@ -7,6 +7,12 @@ Simple and integrated way to customize navigation bar experience on iOS app.
 It should save our time that we usually use to make abstraction of navigation bar,
 back button, and so on.
 
+## Demo
+
+![Blink Navigation Bar](Resources/Blink%20Navigation%20Bar.gif)
+![Navigation Bar with Color](Resources/Navigation%20Bar%20with%20Color.png)
+![Transition Navigation Bar](Resources/Transition%20Navigation%20Bar.gif)
+
 ## Installation
 
 ### CocoaPods
@@ -25,111 +31,42 @@ $ pod install
 
 ## Usage
 
-### Defining Global Configuration
+Since the release of version `0.4`, NavKit has a huge redesign of its API. It makes the switch
+of the mindset to the view controller's based navigation configuration, which means
+we don't need additional layer to configure the navigation experience.
 
-We usually want a global configuration for our navigation bar experience to maintain
-design consistency throughout the app. In order to do that, we should make a class
-that conforms to `CustomizableNavigation` protocol. Without further ado, here is an example :
+There are only 3 things to do in order to use NavKit :
+1. Conforms to protocol `CustomizableNavigation` **and** `UIGestureRecognizerDelegate`.
+2. Define the properties that we need to customize the navigation bar like `barBackgroundColor`, `backImage`, etc.
+3. Call `self.updateNavigation()` wherever in view controller to update the navigation bar based on the defined properties.
 
-```swift
-import Foundation
-import NavKit
+## Example
 
-class MyNavigationConfig: CustomizableNavigation {
-
-    var barBackgroundColor: UIColor = .red
-    var isBarTranslucent: Bool = false
-    var backImage: UIImage = UIImage(named: "Back")!
-    var backTappedAction: ((Any) -> Void)?
-
-}
-```
-
-From example above, we just defined a configuration for navigation bar background color,
-it's translucency, the back button image, and also whether or not we would have a custom
-action when the back button is tapped. When the value of `backTappedAction` property is nil,
-the action that would be performed is the standard pop animation. There are other properties that we could define, just make sure to check `CustomizableNavigation` protocol for further usage.
-
-### Consuming Global Configuration
-
-To make it worked, we have to instantiate an object of `NavigationKit` class in *every view controller*, and glue all the things that we have defined above.
+Note that this section is taken from `Example` project. Make sure to check it to add some knowledge on how to use NavKit.
 
 ```swift
 import UIKit
 import NavKit
 
-class ViewController: UIViewController {
+class DetailViewController: UIViewController, CustomizableNavigation, UIGestureRecognizerDelegate {
+    // MARK: - Navigation Config
 
-    // MARK: - Properties
-
-    var navigationKit: NavigationKit!
-
-    // MARK: - Life Cycles
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if let navigationController = navigationController {
-            navigationKit = NavigationKit(
-                customizableNavigation: MyNavigationConfig(),
-                navigationController: navigationController,
-                navigationItem: navigationItem
-            )
-
-            navigationKit.updateNavigation()
-        }
-    }
-
-}
-```
-
-### Customizing Experience on Specific View Controller
-
-In order to customize the navigation bar experience on some specific view controller,
-we just have to set a new value to any property that we have defined in a class
-that conforms to `CustomizableNavigation` protocol. Here is an example to change
-the navigation bar background color and it's behavior when the back button is tapped :
-
-```swift
-import UIKit
-import NavKit
-
-class ViewController: UIViewController {
-
-    // MARK: - Properties
-
-    var navigationKit: NavigationKit!
+    var barBackgroundColor: UIColor = UIColor.blue.withAlphaComponent(0.5)
+    var backText: String? = "<-- Go back"
 
     // MARK: - Life Cycles
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if let navigationController = navigationController {
-            let navigationConfig = MyNavigationConfig()
-            navigationConfig.barBackgroundColor = .blue
-
-            navigationConfig.backTappedAction = { [unowned self] sender in
-                _ = self.navigationController.popToRootViewController(animated: true)
-            }
-
-            navigationKit = NavigationKit(
-                customizableNavigation: navigationConfig,
-                navigationController: navigationController,
-                navigationItem: navigationItem
-            )
-
-            navigationKit.updateNavigation()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .white
+        self.updateNavigation()
     }
-
 }
 ```
 
 ## Support
 
-If you have any feedbacks, feel free to submit a PR! And I'm more than happy to answer your
-questions, or maybe just some hi?! To do that, shoot me a DM or tweet [@wilbertliu](https://twitter.com/wilbertliu)
+Have any feedbacks? Feel free to submit a PR! And I'm more than happy to answer questions, or maybe just some hi?! To do that, shoot me a DM or tweet [@wilbertliu](https://twitter.com/wilbertliu)
 
 ## License
 
