@@ -1,5 +1,5 @@
 //
-//  NavigationKitTests.swift
+//  NavKitTests.swift
 //  NavKitTests
 //
 //  Created by Wilbert Liu on 3/18/17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import NavKit
 
-class NavigationKitTests: XCTestCase {
+class NavKitTests: XCTestCase {
     // MARK: - Properties
 
     var controller: ViewController!

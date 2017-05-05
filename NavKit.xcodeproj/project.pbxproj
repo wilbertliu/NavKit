@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF2468C81E811C14003B570B /* NavKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CF2468C61E811C14003B570B /* NavKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF2468DF1E811E5E003B570B /* NavigationKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468D91E811C3D003B570B /* NavigationKitTests.swift */; };
+		CF2468DF1E811E5E003B570B /* NavKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468D91E811C3D003B570B /* NavKitTests.swift */; };
 		CF2468E31E811E68003B570B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2468CC1E811C2E003B570B /* ViewController.swift */; };
 		CFCB9B451E8121620021A294 /* CustomizableNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB9B441E8121620021A294 /* CustomizableNavigation.swift */; };
 		CFE5913A1E7D3EE6004C536B /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE591301E7D3EE6004C536B /* NavKit.framework */; };
@@ -28,7 +28,7 @@
 		CF2468C51E811C14003B570B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NavKit/Info.plist; sourceTree = SOURCE_ROOT; };
 		CF2468C61E811C14003B570B /* NavKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavKit.h; path = NavKit/NavKit.h; sourceTree = SOURCE_ROOT; };
 		CF2468CC1E811C2E003B570B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = NavKitTests/ViewController.swift; sourceTree = SOURCE_ROOT; };
-		CF2468D91E811C3D003B570B /* NavigationKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationKitTests.swift; path = NavKitTests/NavigationKitTests.swift; sourceTree = SOURCE_ROOT; };
+		CF2468D91E811C3D003B570B /* NavKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavKitTests.swift; path = NavKitTests/NavKitTests.swift; sourceTree = SOURCE_ROOT; };
 		CF2468DB1E811C46003B570B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NavKitTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		CFCB9B441E8121620021A294 /* CustomizableNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomizableNavigation.swift; path = NavKit/CustomizableNavigation.swift; sourceTree = SOURCE_ROOT; };
 		CFE591301E7D3EE6004C536B /* NavKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +57,7 @@
 		CF3702041E7D9B3400D38715 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				CF2468D91E811C3D003B570B /* NavigationKitTests.swift */,
+				CF2468D91E811C3D003B570B /* NavKitTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF2468E31E811E68003B570B /* ViewController.swift in Sources */,
-				CF2468DF1E811E5E003B570B /* NavigationKitTests.swift in Sources */,
+				CF2468DF1E811E5E003B570B /* NavKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
