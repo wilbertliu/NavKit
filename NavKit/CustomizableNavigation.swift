@@ -22,7 +22,7 @@ public protocol CustomizableNavigation {
     /// Specify this property to determine whether or not the navigation bar
     /// would use shadow. Set the value to false to remove a *strange*
     /// line at the bottom of navigation bar.
-    var isBarUsingShadow: Bool { get }
+    var isBarUsingBottomShadow: Bool { get }
 
     /// Specify this property to determine which title color that would be used
     /// at the midst of navigation bar.
@@ -51,7 +51,7 @@ public protocol CustomizableNavigation {
 public extension CustomizableNavigation where Self: UIViewController, Self: UIGestureRecognizerDelegate {
     var barBackgroundColor: UIColor { return .white }
     var isBarTranslucent: Bool { return true }
-    var isBarUsingShadow: Bool { return true }
+    var isBarUsingBottomShadow: Bool { return true }
     var titleColor: UIColor { return .black }
     var titleFont: UIFont { return .systemFont(ofSize: 17) }
     var backImage: UIImage? { return nil }
@@ -63,7 +63,7 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
         let navigationBarColor = imageWithColor(barBackgroundColor, andSize: CGSize(width: 1, height: 1))
 
         navigationBar?.setBackgroundImage(navigationBarColor, for: .default)
-        navigationBar?.shadowImage = !isBarUsingShadow ? UIImage() : navigationBarColor
+        navigationBar?.shadowImage = isBarUsingBottomShadow ? nil : UIImage()
         navigationBar?.isTranslucent = isBarTranslucent
 
         var titleTextAttributes = navigationBar?.titleTextAttributes ?? [:]

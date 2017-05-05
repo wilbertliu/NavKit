@@ -46,6 +46,10 @@ class NavKitTests: XCTestCase {
 
     func testBarShadow() {
         controller.updateNavigation()
+        XCTAssertNil(navController.navigationBar.shadowImage)
+
+        controller.isBarUsingBottomShadow = false
+        controller.updateNavigation()
         XCTAssertNotNil(navController.navigationBar.shadowImage)
     }
 
