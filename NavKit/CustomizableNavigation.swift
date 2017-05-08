@@ -15,11 +15,6 @@ public protocol CustomizableNavigation {
     var barBackgroundColor: UIColor { get }
 
     /// Specify this property to determine whether or not the navigation bar
-    /// is translucent. Set the value to true if you want to have such kind like
-    /// beautiful transparency effect.
-    var isBarTranslucent: Bool { get }
-
-    /// Specify this property to determine whether or not the navigation bar
     /// would use shadow. Set the value to false to remove a *strange*
     /// line at the bottom of navigation bar.
     var isBarUsingBottomShadow: Bool { get }
@@ -46,11 +41,13 @@ public protocol CustomizableNavigation {
 
     /// Update the navigation configuration based on the specified properties.
     func updateNavigation()
+
+    /// Reset the navigation configuration.
+    func resetNavigation()
 }
 
 public extension CustomizableNavigation where Self: UIViewController, Self: UIGestureRecognizerDelegate {
     var barBackgroundColor: UIColor { return .white }
-    var isBarTranslucent: Bool { return true }
     var isBarUsingBottomShadow: Bool { return true }
     var titleColor: UIColor { return .black }
     var titleFont: UIFont { return .systemFont(ofSize: 17) }
@@ -60,11 +57,24 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
 
     func updateNavigation() {
         let navigationBar = navigationController?.navigationBar
-        let navigationBarColor = imageWithColor(barBackgroundColor, andSize: CGSize(width: 1, height: 1))
 
-        navigationBar?.setBackgroundImage(navigationBarColor, for: .default)
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = isBarUsingBottomShadow ? nil : UIImage()
-        navigationBar?.isTranslucent = isBarTranslucent
+
+        var barView = navigationBar?.subviews.first?.subviews.first
+
+        if barView == nil || barView != nil && type(of: barView!) != UIView.self {
+            barView = UIView(frame: CGRect.zero)
+
+            if let navBarSize = navigationBar?.frame.size {
+                let statusBarSize = UIApplication.shared.statusBarFrame.size
+                barView?.frame.size = CGSize(width: navBarSize.width, height: navBarSize.height + statusBarSize.height)
+            }
+
+            navigationBar?.subviews.first?.insertSubview(barView!, at: 0)
+        }
+
+        barView?.backgroundColor = barBackgroundColor
 
         var titleTextAttributes = navigationBar?.titleTextAttributes ?? [:]
 
@@ -98,22 +108,13 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
         interactivePopRecognizer?.delegate = self
     }
 
-    private func imageWithColor(_ color: UIColor, andSize size: CGSize) -> UIImage? {
-        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+    func resetNavigation() {
+        let navigationBar = navigationController?.navigationBar
 
-        UIGraphicsBeginImageContext(size)
-
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(color.cgColor)
-            context.fill(rect)
-
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-
-            return image
-        }
-
-        return nil
+        navigationBar?.subviews.first?.subviews.first?.removeFromSuperview()
+        navigationBar?.setBackgroundImage(nil, for: .default)
+        navigationBar?.shadowImage = nil
+        navigationBar?.titleTextAttributes = nil
     }
 }
 
