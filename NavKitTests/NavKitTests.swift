@@ -33,17 +33,12 @@ class NavKitTests: XCTestCase {
     func testBarBackgroundColor() {
         controller.updateNavigation()
         XCTAssertNotNil(navController.navigationBar.backgroundImage(for: .default))
-    }
 
-    func testBarTranslucency() {
+        controller.barBackgroundColor = UIColor.white.withAlphaComponent(0.5)
         controller.updateNavigation()
-        XCTAssertTrue(navController.navigationBar.isTranslucent)
-
-        controller.isBarTranslucent = false
-        controller.updateNavigation()
-        XCTAssertFalse(navController.navigationBar.isTranslucent)
+        XCTAssertEqual(controller.barBackgroundColor, navController.navigationBar.subviews.first?.subviews.first?.backgroundColor)
     }
-
+    
     func testBarShadow() {
         controller.updateNavigation()
         XCTAssertNil(navController.navigationBar.shadowImage)
@@ -92,8 +87,8 @@ class NavKitTests: XCTestCase {
         let imageButton = controller.navigationItem.leftBarButtonItems!.first!.customView as! UIButton
         XCTAssertNotNil(imageButton.currentImage)
 
-        let textButton = controller.navigationItem.leftBarButtonItems!.last!.title
-        XCTAssertEqual(textButton, "Back")
+        let title = controller.navigationItem.leftBarButtonItems!.last!.title
+        XCTAssertEqual(title, controller.backText)
     }
 
     func testBackAction() {

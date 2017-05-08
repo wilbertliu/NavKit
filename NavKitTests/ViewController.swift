@@ -11,7 +11,6 @@ import NavKit
 
 class ViewController: UIViewController, CustomizableNavigation, UIGestureRecognizerDelegate {
     var barBackgroundColor: UIColor = .white
-    var isBarTranslucent: Bool = true
     var isBarUsingBottomShadow: Bool = true
     var titleColor: UIColor = .black
     var titleFont: UIFont = .systemFont(ofSize: 17)
