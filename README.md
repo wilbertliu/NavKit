@@ -1,5 +1,6 @@
 # NavKit
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/wilbertliu/NavKit.svg?branch=master)](https://travis-ci.org/wilbertliu/NavKit)
 [![Coverage Status](https://coveralls.io/repos/github/wilbertliu/NavKit/badge.svg?branch=master)](https://coveralls.io/github/wilbertliu/NavKit?branch=master)
 
@@ -14,6 +15,12 @@ back button, and so on.
 ![Transition Navigation Bar](Resources/Transition%20Navigation%20Bar.gif)
 
 ## Installation
+
+### Carthage 
+
+```
+github "wilbertliu/NavKit"
+```
 
 ### CocoaPods
 
