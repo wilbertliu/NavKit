@@ -38,6 +38,10 @@ public protocol CustomizableNavigation {
     /// Specify this property to determine whether or not the screen could be
     /// dragged from left to right to go to the previous screen.
     var isUsingInteractivePopGesture: Bool { get }
+    
+    /// Specify this property to determine whether or not the navigation bar
+    /// title is large or not.
+    var largeNavBarTitle: Bool { get }
 
     /// Update the navigation configuration based on the specified properties.
     func updateNavigation()
@@ -54,6 +58,7 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
     var backImage: UIImage? { return nil }
     var backText: String? { return nil }
     var isUsingInteractivePopGesture: Bool { return true }
+    var largeNavBarTitle:Bool { return true }
 
     func updateNavigation() {
         let navigationBar = navigationController?.navigationBar
@@ -72,6 +77,12 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
             }
 
             navigationBar?.subviews.first?.insertSubview(barView!, at: 0)
+        }
+        
+        if #available(iOS 11.0, *) {
+            if largeNavBarTitle {
+                navigationBar.prefersLargeTitles = true
+            }
         }
 
         barView?.backgroundColor = barBackgroundColor
@@ -111,6 +122,10 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
     func resetNavigation() {
         let navigationBar = navigationController?.navigationBar
 
+        if #available(iOS 11.0, *) {
+            navigationBar.prefersLargeTitles = true
+        }
+        
         navigationBar?.subviews.first?.subviews.first?.removeFromSuperview()
         navigationBar?.setBackgroundImage(nil, for: .default)
         navigationBar?.shadowImage = nil
