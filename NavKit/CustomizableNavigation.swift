@@ -40,7 +40,7 @@ public protocol CustomizableNavigation {
     var isUsingInteractivePopGesture: Bool { get }
     
     /// Specify this property to determine whether or not the navigation bar
-    /// title is large or not
+    /// title is large or not.
     var largeNavBarTitle: Bool { get }
 
     /// Update the navigation configuration based on the specified properties.
